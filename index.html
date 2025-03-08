@@ -189,7 +189,7 @@
         document.addEventListener('mousemove', (e) => {
             if (!isDragging) return;
             const deltaY = startY - e.clientY;
-            let newBottom = startBottom + deltaY / window.innerHeight * 100;
+            let newBottom = startBottom + (deltaY / window.innerHeight * 100);
 
             // Ограничиваем движение шторки
             newBottom = Math.max(-60, Math.min(0, newBottom));
@@ -211,7 +211,7 @@
         document.addEventListener('touchmove', (e) => {
             if (!isDragging) return;
             const deltaY = startY - e.touches[0].clientY;
-            let newBottom = startBottom + deltaY / window.innerHeight * 100;
+            let newBottom = startBottom + (deltaY / window.innerHeight * 100);
 
             // Ограничиваем движение шторки
             newBottom = Math.max(-60, Math.min(0, newBottom));
