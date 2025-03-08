@@ -179,48 +179,49 @@
         let startBottom = 0;
 
         // Начало перетаскивания
-        drawer.addEventListener('mousedown', (e) => {
+        const startDrag = (clientY) => {
             isDragging = true;
-            startY = e.clientY;
+            startY = clientY;
             startBottom = parseFloat(window.getComputedStyle(drawer).bottom);
-        });
+        };
 
         // Перетаскивание
-        document.addEventListener('mousemove', (e) => {
+        const onDrag = (clientY) => {
             if (!isDragging) return;
-            const deltaY = startY - e.clientY;
+            const deltaY = startY - clientY;
             let newBottom = startBottom + (deltaY / window.innerHeight * 100);
 
             // Ограничиваем движение шторки
             newBottom = Math.max(-60, Math.min(0, newBottom));
             drawer.style.bottom = `${newBottom}%`;
-        });
+        };
 
         // Конец перетаскивания
-        document.addEventListener('mouseup', () => {
+        const endDrag = () => {
             isDragging = false;
+        };
+
+        // События для мыши
+        drawer.addEventListener('mousedown', (e) => {
+            startDrag(e.clientY);
         });
 
-        // Для сенсорных устройств
+        document.addEventListener('mousemove', (e) => {
+            onDrag(e.clientY);
+        });
+
+        document.addEventListener('mouseup', endDrag);
+
+        // События для касаний
         drawer.addEventListener('touchstart', (e) => {
-            isDragging = true;
-            startY = e.touches[0].clientY;
-            startBottom = parseFloat(window.getComputedStyle(drawer).bottom);
+            startDrag(e.touches[0].clientY);
         });
 
         document.addEventListener('touchmove', (e) => {
-            if (!isDragging) return;
-            const deltaY = startY - e.touches[0].clientY;
-            let newBottom = startBottom + (deltaY / window.innerHeight * 100);
-
-            // Ограничиваем движение шторки
-            newBottom = Math.max(-60, Math.min(0, newBottom));
-            drawer.style.bottom = `${newBottom}%`;
+            onDrag(e.touches[0].clientY);
         });
 
-        document.addEventListener('touchend', () => {
-            isDragging = false;
-        });
+        document.addEventListener('touchend', endDrag);
     </script>
 </body>
 </html>
