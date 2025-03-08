@@ -41,6 +41,9 @@
             outline: none; /* Убираем ободок */
             border: none; /* Убираем границу */
             -webkit-tap-highlight-color: transparent; /* Убираем синюю подсветку на мобильных */
+            display: flex;
+            justify-content: center; /* Центрирование текста по горизонтали */
+            align-items: center; /* Центрирование текста по вертикали */
         }
 
         /* Первая кнопка (слева) */
@@ -106,6 +109,33 @@
             cursor: pointer; /* Курсор в виде руки при наведении */
         }
 
+        /* Текст под нижними кнопками */
+        .button-text {
+            position: absolute;
+            color: white; /* Цвет текста */
+            font-size: 1rem; /* Размер текста */
+            text-align: center; /* Выравнивание текста по центру */
+            width: 100%; /* Ширина текста */
+        }
+
+        /* Текст под левой нижней кнопкой */
+        .button-text.bottom-left {
+            top: calc(45% + 100%); /* Позиция под кнопкой */
+            left: 5%; /* Та же позиция по горизонтали */
+        }
+
+        /* Текст под правой нижней кнопкой */
+        .button-text.bottom-right {
+            top: calc(45% + 100%); /* Позиция под кнопкой */
+            left: calc(5% + 15.5% + 2%); /* Та же позиция по горизонтали */
+        }
+
+        /* Текст под центральной нижней кнопкой */
+        .button-text.bottom-center {
+            top: calc(45% + 100%); /* Позиция под кнопкой */
+            right: 5%; /* Та же позиция по горизонтали */
+        }
+
         /* Эффект при наведении на кнопку */
         .my-button:hover {
             transform: scale(0.95); /* Уменьшение кнопки на 5% */
@@ -152,6 +182,17 @@
                 right: 5%; /* Та же позиция по горизонтали */
             }
 
+            /* Стили для текста на мобильных устройствах */
+            .button-text {
+                font-size: 0.9rem; /* Уменьшаем размер текста */
+            }
+
+            .button-text.bottom-left,
+            .button-text.bottom-right,
+            .button-text.bottom-center {
+                top: calc(45% + 35vh); /* Позиция под кнопками */
+            }
+
             /* Высота панели */
             .top-panel {
                 height: 40vh; /* Уменьшаем высоту панели */
@@ -161,11 +202,20 @@
 </head>
 <body>
     <div class="top-panel"></div>
-    <button class="my-button left"></button>
-    <button class="my-button right"></button>
+
+    <!-- Верхние кнопки -->
+    <button class="my-button left">Левая</button>
+    <button class="my-button right">Правая</button>
+
+    <!-- Нижние кнопки -->
     <button class="my-button bottom-left"></button>
     <button class="my-button bottom-right"></button>
     <button class="my-button bottom-center"></button>
+
+    <!-- Текст под нижними кнопками -->
+    <div class="button-text bottom-left">Текст под левой</div>
+    <div class="button-text bottom-right">Текст под правой</div>
+    <div class="button-text bottom-center">Текст под центральной</div>
 
     <!-- Шторка -->
     <div class="drawer" id="drawer">
