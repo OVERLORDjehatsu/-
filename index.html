@@ -103,6 +103,7 @@
             background-color: #555555; /* Цвет ручки */
             border-radius: 5px;
             margin: 10px auto; /* Центрирование ручки */
+            cursor: pointer; /* Курсор в виде руки при наведении */
         }
 
         /* Эффект при наведении на кнопку */
@@ -168,60 +169,27 @@
 
     <!-- Шторка -->
     <div class="drawer" id="drawer">
-        <div class="drawer-handle"></div>
+        <div class="drawer-handle" id="drawer-handle"></div>
     </div>
 
     <script>
-        // Логика для перетаскивания шторки
         const drawer = document.getElementById('drawer');
-        let isDragging = false;
-        let startY = 0;
-        let startBottom = 0;
+        const drawerHandle = document.getElementById('drawer-handle');
 
-        // Начало перетаскивания
-        const startDrag = (clientY) => {
-            isDragging = true;
-            startY = clientY;
-            startBottom = parseFloat(window.getComputedStyle(drawer).bottom);
-        };
+        // Состояние шторки (открыта/закрыта)
+        let isOpen = false;
 
-        // Перетаскивание
-        const onDrag = (clientY) => {
-            if (!isDragging) return;
-            const deltaY = startY - clientY;
-            let newBottom = startBottom + (deltaY / window.innerHeight * 100);
-
-            // Ограничиваем движение шторки
-            newBottom = Math.max(-60, Math.min(0, newBottom));
-            drawer.style.bottom = `${newBottom}%`;
-        };
-
-        // Конец перетаскивания
-        const endDrag = () => {
-            isDragging = false;
-        };
-
-        // События для мыши
-        drawer.addEventListener('mousedown', (e) => {
-            startDrag(e.clientY);
+        // Обработчик клика на ручку
+        drawerHandle.addEventListener('click', () => {
+            if (isOpen) {
+                // Закрываем шторку
+                drawer.style.bottom = '-60%';
+            } else {
+                // Открываем шторку
+                drawer.style.bottom = '0%';
+            }
+            isOpen = !isOpen; // Меняем состояние
         });
-
-        document.addEventListener('mousemove', (e) => {
-            onDrag(e.clientY);
-        });
-
-        document.addEventListener('mouseup', endDrag);
-
-        // События для касаний
-        drawer.addEventListener('touchstart', (e) => {
-            startDrag(e.touches[0].clientY);
-        });
-
-        document.addEventListener('touchmove', (e) => {
-            onDrag(e.touches[0].clientY);
-        });
-
-        document.addEventListener('touchend', endDrag);
     </script>
 </body>
 </html>
