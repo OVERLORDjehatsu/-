@@ -74,6 +74,14 @@
             height: 47%; /* Высота на 2% больше */
         }
 
+        /* Пятая кнопка (под правой) */
+        .my-button.bottom-center {
+            top: calc(45% + 50%); /* Под правой кнопкой */
+            right: 5%; /* Та же позиция по горизонтали */
+            width: 31%; /* Ширина как у правой кнопки */
+            height: 47%; /* Высота как у нижних кнопок под левой */
+        }
+
         /* Эффект при наведении на кнопку */
         .my-button:hover {
             transform: scale(0.95); /* Уменьшение кнопки на 5% */
@@ -112,6 +120,14 @@
                 left: calc(5% + 20% + 2%); /* Рядом с левой частью, с отступом */
             }
 
+            /* Стили для кнопки под правой */
+            .my-button.bottom-center {
+                width: 42%; /* Ширина как у правой кнопки */
+                height: 8vh; /* Высота как у нижних кнопок */
+                top: calc(45% + 25vh); /* Позиция под правой кнопкой */
+                right: 5%; /* Та же позиция по горизонтали */
+            }
+
             /* Высота панели */
             .top-panel {
                 height: 40vh; /* Уменьшаем высоту панели */
@@ -125,5 +141,6 @@
     <button class="my-button right"></button>
     <button class="my-button bottom-left"></button>
     <button class="my-button bottom-right"></button>
+    <button class="my-button bottom-center"></button>
 </body>
 </html>
