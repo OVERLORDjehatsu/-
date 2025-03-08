@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mini App</title>
+    <style>
+        /* Основной фон страницы */
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #121212; /* Черный фон */
+            height: 100vh;
+            display: flex;
+            justify-content: center; /* Центрирование по горизонтали */
+            align-items: center; /* Центрирование по вертикали */
+            font-family: Arial, sans-serif;
+        }
+
+        /* Темно-серая панель */
+        .top-panel {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 37%; /* Высота панели */
+            background-color: #242424; /* Темно-серый цвет */
+            border-radius: 0 0 25px 25px; /* Закругление нижних углов */
+        }
+
+        /* Общие стили для кнопок */
+        .my-button {
+            position: absolute;
+            background-color: #242424; /* Цвет кнопки */
+            border-radius: 20px; /* Закругление углов */
+            font-size: 2rem; /* Размер текста */
+            color: white; /* Цвет текста */
+            cursor: pointer; /* Курсор в виде руки при наведении */
+            transition: transform 0.2s; /* Плавное уменьшение */
+            outline: none; /* Убираем ободок */
+            border: none; /* Убираем границу */
+            -webkit-tap-highlight-color: transparent; /* Убираем синюю подсветку на мобильных */
+        }
+
+        /* Первая кнопка (слева) */
+        .my-button.left {
+            top: 45%;
+            left: 5%; /* Отступ слева */
+            width: 31%; /* Ширина кнопки */
+            height: 45%; /* Высота кнопки */
+        }
+
+        /* Вторая кнопка (справа) */
+        .my-button.right {
+            top: 45%;
+            right: 5%; /* Отступ справа */
+            width: 31%; /* Ширина кнопки */
+            height: 45%; /* Высота кнопки */
+        }
+
+        /* Третья кнопка (под левой, левая часть) */
+        .my-button.bottom-left {
+            top: calc(45% + 50%); /* Под левой кнопкой */
+            left: 5%; /* Та же позиция по горизонтали */
+            width: 15.5%; /* Половина ширины левой кнопки */
+            height: 47%; /* Высота на 2% больше */
+        }
+
+        /* Четвертая кнопка (под левой, правая часть) */
+        .my-button.bottom-right {
+            top: calc(45% + 50%); /* Под левой кнопкой */
+            left: calc(5% + 15.5%); /* Рядом с левой частью */
+            width: 15.5%; /* Половина ширины левой кнопки */
+            height: 47%; /* Высота на 2% больше */
+        }
+
+        /* Эффект при наведении на кнопку */
+        .my-button:hover {
+            transform: scale(0.95); /* Уменьшение кнопки на 5% */
+        }
+
+        /* Эффект при нажатии на кнопку */
+        .my-button:active {
+            transform: scale(0.9); /* Уменьшение кнопки на 10% */
+            transition: transform 0.1s; /* Быстрая анимация при нажатии */
+        }
+
+        /* Медиазапрос для мобильных устройств */
+        @media (max-width: 600px) {
+            /* Стили для верхних кнопок */
+            .my-button.left,
+            .my-button.right {
+                width: 42%; /* Ширина кнопки */
+                height: 20vh; /* Высота кнопки */
+                font-size: 1.5rem; /* Уменьшаем размер текста */
+            }
+
+            /* Стили для нижних кнопок */
+            .my-button.bottom-left,
+            .my-button.bottom-right {
+                width: 18%; /* Половина ширины левой кнопки */
+                height: 8vh; /* Высота на 2% больше */
+                font-size: 1.2rem; /* Уменьшаем размер текста */
+                top: calc(45% + 25vh); /* Позиция под левой кнопкой */
+            }
+
+            .my-button.bottom-right {
+                left: calc(5% + 21%); /* Рядом с левой частью */
+            }
+
+            /* Высота панели */
+            .top-panel {
+                height: 40vh; /* Уменьшаем высоту панели */
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="top-panel"></div>
+    <button class="my-button left"></button>
+    <button class="my-button right"></button>
+    <button class="my-button bottom-left"></button>
+    <button class="my-button bottom-right"></button>
+</body>
+</html>
