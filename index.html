@@ -15,6 +15,7 @@
             justify-content: center; /* Центрирование по горизонтали */
             align-items: center; /* Центрирование по вертикали */
             font-family: Arial, sans-serif;
+            overflow: hidden; /* Убираем скролл */
         }
 
         /* Темно-серая панель */
@@ -82,6 +83,28 @@
             height: 47%; /* Высота как у нижних кнопок под левой */
         }
 
+        /* Шторка */
+        .drawer {
+            position: absolute;
+            bottom: -60%; /* Изначально торчит на 10% */
+            left: 5%; /* Отступ слева */
+            width: 90%; /* Ширина шторки */
+            height: 70%; /* Высота шторки */
+            background-color: #242424; /* Цвет шторки */
+            border-radius: 25px 25px 0 0; /* Закругление верхних углов */
+            transition: bottom 0.3s ease; /* Плавное выезжание */
+            touch-action: none; /* Отключаем стандартное поведение касаний */
+        }
+
+        /* Ручка шторки */
+        .drawer-handle {
+            width: 50px;
+            height: 5px;
+            background-color: #555555; /* Цвет ручки */
+            border-radius: 5px;
+            margin: 10px auto; /* Центрирование ручки */
+        }
+
         /* Эффект при наведении на кнопку */
         .my-button:hover {
             transform: scale(0.95); /* Уменьшение кнопки на 5% */
@@ -142,5 +165,62 @@
     <button class="my-button bottom-left"></button>
     <button class="my-button bottom-right"></button>
     <button class="my-button bottom-center"></button>
+
+    <!-- Шторка -->
+    <div class="drawer" id="drawer">
+        <div class="drawer-handle"></div>
+    </div>
+
+    <script>
+        // Логика для перетаскивания шторки
+        const drawer = document.getElementById('drawer');
+        let isDragging = false;
+        let startY = 0;
+        let startBottom = 0;
+
+        // Начало перетаскивания
+        drawer.addEventListener('mousedown', (e) => {
+            isDragging = true;
+            startY = e.clientY;
+            startBottom = parseFloat(window.getComputedStyle(drawer).bottom);
+        });
+
+        // Перетаскивание
+        document.addEventListener('mousemove', (e) => {
+            if (!isDragging) return;
+            const deltaY = startY - e.clientY;
+            let newBottom = startBottom + deltaY / window.innerHeight * 100;
+
+            // Ограничиваем движение шторки
+            newBottom = Math.max(-60, Math.min(0, newBottom));
+            drawer.style.bottom = `${newBottom}%`;
+        });
+
+        // Конец перетаскивания
+        document.addEventListener('mouseup', () => {
+            isDragging = false;
+        });
+
+        // Для сенсорных устройств
+        drawer.addEventListener('touchstart', (e) => {
+            isDragging = true;
+            startY = e.touches[0].clientY;
+            startBottom = parseFloat(window.getComputedStyle(drawer).bottom);
+        });
+
+        document.addEventListener('touchmove', (e) => {
+            if (!isDragging) return;
+            const deltaY = startY - e.touches[0].clientY;
+            let newBottom = startBottom + deltaY / window.innerHeight * 100;
+
+            // Ограничиваем движение шторки
+            newBottom = Math.max(-60, Math.min(0, newBottom));
+            drawer.style.bottom = `${newBottom}%`;
+        });
+
+        document.addEventListener('touchend', () => {
+            isDragging = false;
+        });
+    </script>
 </body>
 </html>
