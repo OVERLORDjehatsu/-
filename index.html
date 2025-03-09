@@ -113,23 +113,23 @@
         .button-text {
             position: absolute;
             color: white; /* Цвет текста */
-            font-size: 0.5rem; /* Размер текста */
+            font-size: 1rem; /* Размер текста */
             text-align: center; /* Выравнивание текста по центру */
-            width: 95%; /* Ширина текста */
+            width: 100%; /* Ширина текста */
         }
 
         /* Текст под левой нижней кнопкой */
         .button-text.bottom-left {
-            top: calc(40% + 95% + 10px); /* Позиция под кнопкой */
-            left: 7%; /* Та же позиция по горизонтали */
-            width: 10%; /* Ширина как у кнопки */
+            top: calc(45% + 100% + 10px); /* Позиция под кнопкой */
+            left: 5%; /* Та же позиция по горизонтали */
+            width: 15.5%; /* Ширина как у кнопки */
         }
 
         /* Текст под правой нижней кнопкой */
         .button-text.bottom-right {
-            top: calc(40% + 95% + 10px); /* Позиция под кнопкой */
-            left: calc(5% + 15.5% + 8%); /* Та же позиция по горизонтали */
-            width: 10%; /* Ширина как у кнопки */
+            top: calc(45% + 100% + 10px); /* Позиция под кнопкой */
+            left: calc(5% + 15.5% + 2%); /* Та же позиция по горизонтали */
+            width: 15.5%; /* Ширина как у кнопки */
         }
 
         /* Текст под центральной нижней кнопкой */
@@ -157,15 +157,15 @@
             .my-button.right {
                 width: 42%; /* Ширина кнопки */
                 height: 20vh; /* Высота кнопки */
-                font-size: 1rem; /* Уменьшаем размер текста */
+                font-size: 1.5rem; /* Уменьшаем размер текста */
             }
 
             /* Стили для нижних кнопок */
             .my-button.bottom-left,
             .my-button.bottom-right {
-                width: 17%; /* Половина ширины левой кнопки */
+                width: 20%; /* Половина ширины левой кнопки */
                 height: 8vh; /* Высота на 2% больше */
-                font-size: 0.9rem; /* Уменьшаем размер текста */
+                font-size: 1.2rem; /* Уменьшаем размер текста */
                 top: calc(45% + 25vh); /* Позиция под левой кнопкой */
             }
 
@@ -193,7 +193,7 @@
             .button-text.bottom-left,
             .button-text.bottom-right,
             .button-text.bottom-center {
-                top: calc(42% + 32vh); /* Позиция под кнопками */
+                top: calc(45% + 35vh); /* Позиция под кнопками */
             }
 
             /* Высота панели */
@@ -207,8 +207,8 @@
     <div class="top-panel"></div>
 
     <!-- Верхние кнопки -->
-    <button class="my-button left">СПИСОК ОФЕРОВ</button>
-    <button class="my-button right">БИРЖА</button>
+    <button class="my-button left">Левая</button>
+    <button class="my-button right">Правая</button>
 
     <!-- Нижние кнопки -->
     <button class="my-button bottom-left"></button>
@@ -216,9 +216,9 @@
     <button class="my-button bottom-center"></button>
 
     <!-- Текст под нижними кнопками -->
-    <div class="button-text bottom-left">Финансы</div>
-    <div class="button-text bottom-right">Статистика</div>
-    <div class="button-text bottom-center">Traffic race</div>
+    <div class="button-text bottom-left">Текст под левой</div>
+    <div class="button-text bottom-right">Текст под правой</div>
+    <div class="button-text bottom-center">Текст под центральной</div>
 
     <!-- Шторка -->
     <div class="drawer" id="drawer">
