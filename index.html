@@ -210,8 +210,8 @@
     <div class="top-panel"></div>
 
     <!-- Верхние кнопки -->
-    <button class="my-button left"></button>
-    <button class="my-button right"></button>
+    <button class="my-button left">СПИСОК ОФФЕРОВ</button>
+    <button class="my-button right">БИРЖА</button>
 
     <!-- Нижние кнопки -->
     <button class="my-button bottom-left"></button>
@@ -219,9 +219,9 @@
     <button class="my-button bottom-center"></button>
 
     <!-- Текст под нижними кнопками -->
-    <div class="button-text bottom-left"></div>
-    <div class="button-text bottom-right"></div>
-    <div class="button-text bottom-center"></div>
+    <div class="button-text bottom-left">финансы</div>
+    <div class="button-text bottom-right">статистика</div>
+    <div class="button-text bottom-center">Traffic race</div>
 
     <!-- Шторка -->
     <div class="drawer" id="drawer">
@@ -232,20 +232,54 @@
         const drawer = document.getElementById('drawer');
         const drawerHandle = document.getElementById('drawer-handle');
 
-        // Состояние шторки (открыта/закрыта)
-        let isOpen = false;
+        let isDragging = false;
+        let startY = 0;
+        let startBottom = 0;
 
-        // Обработчик клика на ручку
-        drawerHandle.addEventListener('click', () => {
-            if (isOpen) {
-                // Закрываем шторку
-                drawer.style.bottom = '-60%';
-            } else {
-                // Открываем шторку
-                drawer.style.bottom = '0%';
-            }
-            isOpen = !isOpen; // Меняем состояние
+        // Начало перетаскивания
+        const startDrag = (clientY) => {
+            isDragging = true;
+            startY = clientY;
+            startBottom = parseFloat(window.getComputedStyle(drawer).bottom);
+        };
+
+        // Перетаскивание
+        const onDrag = (clientY) => {
+            if (!isDragging) return;
+            const deltaY = startY - clientY;
+            let newBottom = startBottom + (deltaY / window.innerHeight * 100);
+
+            // Ограничиваем движение шторки
+            newBottom = Math.max(-60, Math.min(0, newBottom));
+            drawer.style.bottom = `${newBottom}%`;
+        };
+
+        // Конец перетаскивания
+        const endDrag = () => {
+            isDragging = false;
+        };
+
+        // События для мыши
+        drawerHandle.addEventListener('mousedown', (e) => {
+            startDrag(e.clientY);
         });
+
+        document.addEventListener('mousemove', (e) => {
+            onDrag(e.clientY);
+        });
+
+        document.addEventListener('mouseup', endDrag);
+
+        // События для касаний
+        drawerHandle.addEventListener('touchstart', (e) => {
+            startDrag(e.touches[0].clientY);
+        });
+
+        document.addEventListener('touchmove', (e) => {
+            onDrag(e.touches[0].clientY);
+        });
+
+        document.addEventListener('touchend', endDrag);
     </script>
 </body>
 </html>
