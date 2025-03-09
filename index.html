@@ -162,22 +162,23 @@
 
         /* Текст под левой нижней кнопкой */
         .button-text.bottom-left {
-            top: calc(50% + 100% + 5px);
-            left: 10%;
-            width: 10%;
+            top: calc(45% + 100% + 5px);
+            left: 5%;
+            width: 15.5%;
         }
 
         /* Текст под правой нижней кнопкой */
         .button-text.bottom-right {
-            top: calc(50% + 100% + 5px);
-            left: calc(10% + 15.5% + 2%);
+            top: calc(45% + 100% + 5px);
+            left: calc(5% + 15.5% + 2%);
             width: 15.5%;
         }
 
         /* Текст под центральной нижней кнопкой */
         .button-text.bottom-center {
-            top: calc(45% + 100% + 5px);
-            right: 5%;
+            top: calc(45% + 100% + 10px); /* Увеличиваем отступ сверху */
+            left: 50%; /* Позиционируем по центру кнопки */
+            transform: translateX(-50%); /* Сдвигаем текст левее на 50% ширины кнопки */
             width: 31%;
             font-family: 'Open Sans', sans-serif; /* Шрифт Open Sans */
             font-size: 1.2rem; /* Размер текста */
