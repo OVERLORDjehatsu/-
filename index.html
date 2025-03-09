@@ -12,10 +12,10 @@
             background-color: #121212; /* Черный фон */
             height: 100vh;
             display: flex;
-            justify-content: center; /* Центрирование по горизонтали */
-            align-items: center; /* Центрирование по вертикали */
+            justify-content: center;
+            align-items: center;
             font-family: Arial, sans-serif;
-            overflow: hidden; /* Убираем скролл */
+            overflow: hidden;
         }
 
         /* Темно-серая панель */
@@ -24,184 +24,179 @@
             top: 0;
             left: 0;
             width: 100%;
-            height: 37%; /* Высота панели */
-            background-color: #242424; /* Темно-серый цвет */
-            border-radius: 0 0 25px 25px; /* Закругление нижних углов */
+            height: 37%;
+            background-color: #242424;
+            border-radius: 0 0 25px 25px;
         }
 
         /* Общие стили для кнопок */
         .my-button {
             position: absolute;
-            background-color: #242424; /* Цвет кнопки */
-            border-radius: 20px; /* Закругление углов */
-            font-size: 2rem; /* Размер текста */
-            color: white; /* Цвет текста */
-            cursor: pointer; /* Курсор в виде руки при наведении */
-            transition: transform 0.2s; /* Плавное уменьшение */
-            outline: none; /* Убираем ободок */
-            border: none; /* Убираем границу */
-            -webkit-tap-highlight-color: transparent; /* Убираем синюю подсветку на мобильных */
+            background-color: #242424;
+            border-radius: 20px;
+            font-size: 2rem;
+            color: white;
+            cursor: pointer;
+            transition: transform 0.2s;
+            outline: none;
+            border: none;
+            -webkit-tap-highlight-color: transparent;
             display: flex;
-            justify-content: center; /* Центрирование текста по горизонтали */
-            align-items: flex-start; /* Текст сверху */
-            padding-top: 20px; /* Отступ сверху */
-            font-weight: bold; /* Жирный текст */
+            justify-content: center;
+            align-items: flex-start;
+            padding-top: 20px;
+            font-weight: bold;
         }
 
         /* Первая кнопка (слева) */
         .my-button.left {
             top: 45%;
-            left: 5%; /* Отступ слева */
-            width: 31%; /* Ширина кнопки */
-            height: 45%; /* Высота кнопки */
+            left: 5%;
+            width: 31%;
+            height: 45%;
         }
 
         /* Вторая кнопка (справа) */
         .my-button.right {
             top: 45%;
-            right: 5%; /* Отступ справа */
-            width: 31%; /* Ширина кнопки */
-            height: 45%; /* Высота кнопки */
+            right: 5%;
+            width: 31%;
+            height: 45%;
         }
 
         /* Третья кнопка (под левой, левая часть) */
         .my-button.bottom-left {
-            top: calc(45% + 50%); /* Под левой кнопкой */
-            left: 5%; /* Та же позиция по горизонтали */
-            width: 15.5%; /* Половина ширины левой кнопки */
-            height: 47%; /* Высота на 2% больше */
+            top: calc(45% + 50%);
+            left: 5%;
+            width: 15.5%;
+            height: 47%;
         }
 
         /* Четвертая кнопка (под левой, правая часть) */
         .my-button.bottom-right {
-            top: calc(45% + 50%); /* Под левой кнопкой */
-            left: calc(5% + 15.5% + 2%); /* Рядом с левой частью, с отступом */
-            width: 15.5%; /* Половина ширины левой кнопки */
-            height: 47%; /* Высота на 2% больше */
+            top: calc(45% + 50%);
+            left: calc(5% + 15.5% + 2%);
+            width: 15.5%;
+            height: 47%;
         }
 
         /* Пятая кнопка (под правой) */
         .my-button.bottom-center {
-            top: calc(45% + 50%); /* Под правой кнопкой */
-            right: 5%; /* Та же позиция по горизонтали */
-            width: 31%; /* Ширина как у правой кнопки */
-            height: 47%; /* Высота как у нижних кнопок под левой */
-            background-image: linear-gradient(to right, #5de0e6, #004aad); /* Градиент */
+            top: calc(45% + 50%);
+            right: 5%;
+            width: 31%;
+            height: 47%;
+            background-image: linear-gradient(to right, #5de0e6, #004aad);
         }
 
         /* Шторка */
         .drawer {
             position: absolute;
-            bottom: -60%; /* Изначально торчит на 10% */
-            left: 5%; /* Отступ слева */
-            width: 90%; /* Ширина шторки */
-            height: 70%; /* Высота шторки */
-            background-color: #242424; /* Цвет шторки */
-            border-radius: 25px 25px 0 0; /* Закругление верхних углов */
-            transition: bottom 0.3s ease; /* Плавное выезжание */
-            touch-action: none; /* Отключаем стандартное поведение касаний */
+            bottom: -60%;
+            left: 5%;
+            width: 90%;
+            height: 70%;
+            background-color: #242424;
+            border-radius: 25px 25px 0 0;
+            transition: bottom 0.3s ease;
+            touch-action: none;
         }
 
         /* Ручка шторки */
         .drawer-handle {
             width: 50px;
             height: 5px;
-            background-color: #555555; /* Цвет ручки */
+            background-color: #555555;
             border-radius: 5px;
-            margin: 10px auto; /* Центрирование ручки */
-            cursor: pointer; /* Курсор в виде руки при наведении */
+            margin: 10px auto;
+            cursor: pointer;
         }
 
         /* Текст под нижними кнопками */
         .button-text {
             position: absolute;
-            color: white; /* Цвет текста */
-            font-size: 1rem; /* Размер текста */
-            text-align: center; /* Выравнивание текста по центру */
-            width: 100%; /* Ширина текста */
+            color: white;
+            font-size: 1rem;
+            text-align: center;
+            width: 100%;
         }
 
         /* Текст под левой нижней кнопкой */
         .button-text.bottom-left {
-            top: calc(45% + 100% + 5px); /* Позиция под кнопкой */
-            left: 5%; /* Та же позиция по горизонтали */
-            width: 15.5%; /* Ширина как у кнопки */
+            top: calc(45% + 100% + 5px);
+            left: 5%;
+            width: 15.5%;
         }
 
         /* Текст под правой нижней кнопкой */
         .button-text.bottom-right {
-            top: calc(45% + 100% + 5px); /* Позиция под кнопкой */
-            left: calc(5% + 15.5% + 2%); /* Та же позиция по горизонтали */
-            width: 15.5%; /* Ширина как у кнопки */
+            top: calc(45% + 100% + 5px);
+            left: calc(5% + 15.5% + 2%);
+            width: 15.5%;
         }
 
         /* Текст под центральной нижней кнопкой */
         .button-text.bottom-center {
-            top: calc(45% + 100% + 5px); /* Позиция под кнопкой */
-            right: 5%; /* Та же позиция по горизонтали */
-            width: 31%; /* Ширина как у кнопки */
+            top: calc(45% + 100% + 5px);
+            right: 5%;
+            width: 31%;
         }
 
         /* Эффект при наведении на кнопку */
         .my-button:hover {
-            transform: scale(0.95); /* Уменьшение кнопки на 5% */
+            transform: scale(0.95);
         }
 
         /* Эффект при нажатии на кнопку */
         .my-button:active {
-            transform: scale(0.9); /* Уменьшение кнопки на 10% */
-            transition: transform 0.1s; /* Быстрая анимация при нажатии */
+            transform: scale(0.9);
+            transition: transform 0.1s;
         }
 
         /* Медиазапрос для мобильных устройств */
         @media (max-width: 600px) {
-            /* Стили для верхних кнопок */
             .my-button.left,
             .my-button.right {
-                width: 42%; /* Ширина кнопки */
-                height: 20vh; /* Высота кнопки */
-                font-size: 1.5rem; /* Уменьшаем размер текста */
+                width: 42%;
+                height: 20vh;
+                font-size: 1.5rem;
             }
 
-            /* Стили для нижних кнопок */
             .my-button.bottom-left,
             .my-button.bottom-right {
-                width: 20%; /* Половина ширины левой кнопки */
-                height: 8vh; /* Высота на 2% больше */
-                font-size: 1.2rem; /* Уменьшаем размер текста */
-                top: calc(45% + 25vh); /* Позиция под левой кнопкой */
+                width: 20%;
+                height: 8vh;
+                font-size: 1.2rem;
+                top: calc(45% + 25vh);
             }
 
             .my-button.bottom-left {
-                left: 5%; /* Та же позиция по горизонтали */
+                left: 5%;
             }
 
             .my-button.bottom-right {
-                left: calc(5% + 20% + 2%); /* Рядом с левой частью, с отступом */
+                left: calc(5% + 20% + 2%);
             }
 
-            /* Стили для кнопки под правой */
             .my-button.bottom-center {
-                width: 42%; /* Ширина как у правой кнопки */
-                height: 8vh; /* Высота как у нижних кнопок */
-                top: calc(45% + 25vh); /* Позиция под правой кнопкой */
-                right: 5%; /* Та же позиция по горизонтали */
+                width: 42%;
+                height: 8vh;
+                top: calc(45% + 25vh);
+                right: 5%;
             }
 
-            /* Стили для текста на мобильных устройствах */
             .button-text {
-                font-size: 0.9rem; /* Уменьшаем размер текста */
+                font-size: 0.9rem;
             }
 
             .button-text.bottom-left,
             .button-text.bottom-right,
             .button-text.bottom-center {
-                top: calc(45% + 30vh); /* Позиция под кнопками */
+                top: calc(45% + 30vh);
             }
 
-            /* Высота панели */
             .top-panel {
-                height: 40vh; /* Уменьшаем высоту панели */
+                height: 40vh;
             }
         }
     </style>
@@ -272,10 +267,12 @@
 
         // События для касаний
         drawerHandle.addEventListener('touchstart', (e) => {
+            e.preventDefault(); // Предотвращаем стандартное поведение
             startDrag(e.touches[0].clientY);
         });
 
         document.addEventListener('touchmove', (e) => {
+            e.preventDefault(); // Предотвращаем стандартное поведение
             onDrag(e.touches[0].clientY);
         });
 
