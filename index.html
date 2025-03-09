@@ -176,16 +176,16 @@
 
         /* Текст под центральной нижней кнопкой */
         .button-text.bottom-center {
-            top: calc(45% + 47% + 10px);
-            left: 73%;
-            transform: translateX(-50%);
-            width: 31%;
-            font-family: 'Open Sans', sans-serif;
-            font-size: 0.7rem;
-            color: white;
-            text-align: center;
-            font-weight: bold;
-            z-index: 10; /* Добавлено */
+            position: absolute;
+            bottom: 15%; /* Отступ от низа (настраивайте это значение) */
+            left: 27%; /* Позиция по горизонтали (настраивайте это значение) */
+            transform: translateX(-50%); /* Центрирование по горизонтали */
+            width: auto; /* Ширина текста автоматическая */
+            font-family: 'Open Sans', sans-serif; /* Шрифт */
+            font-size: 0.7rem; /* Размер текста */
+            color: white; /* Цвет текста */
+            text-align: none; /* Выравнивание текста по центру */
+            font-weight: bold; /* Жирный текст */
         }
 
         /* Эффект при наведении на кнопку */
