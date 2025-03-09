@@ -86,13 +86,12 @@
             right: 5%;
             width: 31%;
             height: 47%;
-            /* Градиент и изображение вместе */
             background-image:
-                linear-gradient(to right, #5de0e6, #004aad), /* Градиент */
-                url('https://i.imgur.com/xauz5Eq.png'); /* Изображение */
-            background-size: 100% 100%, 50% auto; /* Изображение занимает половину ширины кнопки */
-            background-position:left, right; /* Изображение справа */
-            background-repeat: no-repeat; /* Убираем повторение */
+                url('https://i.imgur.com/xauz5Eq.png'),
+                linear-gradient(to right, #5de0e6, #004aad);
+            background-size: auto 80%, 100% 100%;
+            background-position: center, center;
+            background-repeat: no-repeat;
         }
 
         /* Шторка */
