@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mini App</title>
+    <!-- Подключение шрифта Open Sans -->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
     <style>
         /* Основной фон страницы */
         body {
@@ -177,6 +179,11 @@
             top: calc(45% + 100% + 5px);
             right: 5%;
             width: 31%;
+            font-family: 'Open Sans', sans-serif; /* Шрифт Open Sans */
+            font-size: 1.2rem; /* Размер текста */
+            color: white; /* Цвет текста */
+            text-align: center; /* Выравнивание по центру */
+            font-weight: bold; /* Жирный текст */
         }
 
         /* Эффект при наведении на кнопку */
@@ -255,6 +262,9 @@
         <span class="image image-2"></span>
         <span class="image image-3"></span>
     </button>
+
+    <!-- Текст под кнопкой -->
+    <div class="button-text bottom-center">Traffic race</div>
 
     <!-- Шторка -->
     <div class="drawer" id="drawer">
