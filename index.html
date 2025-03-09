@@ -176,17 +176,17 @@
 
         /* Текст под центральной нижней кнопкой */
         .button-text.bottom-center {
-            top: calc(45% + 105% + 5px + 5%); /* Увеличиваем на 5% */
+            top: calc(45% + 47% + 10px); /* 45% (начальная позиция) + 47% (высота кнопки) + 10px (отступ) */
             left: 73%;
             transform: translateX(-50%);
             width: 31%;
             font-family: 'Open Sans', sans-serif;
             font-size: 0.7rem;
             color: white;
-            text-align: none;
+            text-align: center; /* Исправлено на center для выравнивания текста */
             font-weight: bold;
         }
-        
+
         /* Эффект при наведении на кнопку */
         .my-button:hover {
             transform: scale(0.95);
