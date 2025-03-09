@@ -43,7 +43,9 @@
             -webkit-tap-highlight-color: transparent; /* Убираем синюю подсветку на мобильных */
             display: flex;
             justify-content: center; /* Центрирование текста по горизонтали */
-            align-items: center; /* Центрирование текста по вертикали */
+            align-items: flex-start; /* Текст сверху */
+            padding-top: 20px; /* Отступ сверху */
+            font-weight: bold; /* Жирный текст */
         }
 
         /* Первая кнопка (слева) */
@@ -120,21 +122,21 @@
 
         /* Текст под левой нижней кнопкой */
         .button-text.bottom-left {
-            top: calc(45% + 100% + 10px); /* Позиция под кнопкой */
+            top: calc(45% + 100% + 5px); /* Позиция под кнопкой */
             left: 5%; /* Та же позиция по горизонтали */
             width: 15.5%; /* Ширина как у кнопки */
         }
 
         /* Текст под правой нижней кнопкой */
         .button-text.bottom-right {
-            top: calc(45% + 100% + 10px); /* Позиция под кнопкой */
+            top: calc(45% + 100% + 5px); /* Позиция под кнопкой */
             left: calc(5% + 15.5% + 2%); /* Та же позиция по горизонтали */
             width: 15.5%; /* Ширина как у кнопки */
         }
 
         /* Текст под центральной нижней кнопкой */
         .button-text.bottom-center {
-            top: calc(45% + 100% + 10px); /* Позиция под кнопкой */
+            top: calc(45% + 100% + 5px); /* Позиция под кнопкой */
             right: 5%; /* Та же позиция по горизонтали */
             width: 31%; /* Ширина как у кнопки */
         }
@@ -193,7 +195,7 @@
             .button-text.bottom-left,
             .button-text.bottom-right,
             .button-text.bottom-center {
-                top: calc(45% + 35vh); /* Позиция под кнопками */
+                top: calc(45% + 30vh); /* Позиция под кнопками */
             }
 
             /* Высота панели */
@@ -207,8 +209,8 @@
     <div class="top-panel"></div>
 
     <!-- Верхние кнопки -->
-    <button class="my-button left">Левая</button>
-    <button class="my-button right">Правая</button>
+    <button class="my-button left">СПИСОК ОФФЕРОВ</button>
+    <button class="my-button right">БИРЖА</button>
 
     <!-- Нижние кнопки -->
     <button class="my-button bottom-left"></button>
@@ -216,9 +218,9 @@
     <button class="my-button bottom-center"></button>
 
     <!-- Текст под нижними кнопками -->
-    <div class="button-text bottom-left">Текст под левой</div>
-    <div class="button-text bottom-right">Текст под правой</div>
-    <div class="button-text bottom-center">Текст под центральной</div>
+    <div class="button-text bottom-left">финансы</div>
+    <div class="button-text bottom-right">статистика</div>
+    <div class="button-text bottom-center">Traffic race</div>
 
     <!-- Шторка -->
     <div class="drawer" id="drawer">
