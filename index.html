@@ -82,6 +82,7 @@
 
         /* Пятая кнопка (под правой) */
         .my-button.bottom-center {
+            position: absolute;
             top: calc(45% + 50%);
             right: 5%;
             width: 31%;
@@ -89,38 +90,38 @@
             background-image:
                 url('https://i.imgur.com/xauz5Eq.png'),
                 linear-gradient(to right, #5de0e6, #004aad);
-            background-size: auto 130%, 100% 100%;
+            background-size: auto 80%, 100% 100%;
             background-position: center, center;
             background-repeat: no-repeat;
+            overflow: hidden;
         }
 
         /* Стили для новых изображений */
         .image {
             position: absolute;
-            background-image: url('https://i.imgur.com/m6W64qV.png'); /* Новое изображение */
+            background-image: url('https://i.imgur.com/m6W64qV.png');
             background-size: contain;
             background-repeat: no-repeat;
             background-position: center;
-            opacity: 0.7; /* Прозрачность 30% */
-            width: 20%; /* Ширина изображения */
-            height: 20%; /* Высота изображения */
+            opacity: 0.7;
+            width: 30%; /* Увеличенный размер */
+            height: 30%; /* Увеличенный размер */
+            border: 2px solid red; /* Временная рамка для отладки */
+            display: block; /* Делаем span блочным элементом */
         }
 
-        /* Позиционирование первого изображения */
         .image-1 {
-            top: 10%;
-            left: 10%;
+            top: 5%;
+            left: 5%;
         }
 
-        /* Позиционирование второго изображения */
         .image-2 {
-            top: 10%;
-            right: 10%;
+            top: 5%;
+            right: 5%;
         }
 
-        /* Позиционирование третьего изображения */
         .image-3 {
-            bottom: 10%;
+            bottom: 5%;
             left: 50%;
             transform: translateX(-50%);
         }
@@ -247,12 +248,13 @@
     <!-- Нижние кнопки -->
     <button class="my-button bottom-left"></button>
     <button class="my-button bottom-right"></button>
-    <button class="my-button bottom-center"></button>
 
-    <!-- Текст под нижними кнопками -->
-    <div class="button-text bottom-left"></div>
-    <div class="button-text bottom-right"></div>
-    <div class="button-text bottom-center"></div>
+    <!-- Центральная нижняя кнопка с изображениями -->
+    <button class="my-button bottom-center">
+        <span class="image image-1"></span>
+        <span class="image image-2"></span>
+        <span class="image image-3"></span>
+    </button>
 
     <!-- Шторка -->
     <div class="drawer" id="drawer">
