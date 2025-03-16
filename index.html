@@ -141,31 +141,14 @@
             touch-action: none;
         }
 
-        /* Стрелка */
-        .drawer-arrow {
-            position: absolute;
-            top: 10px; /* Отступ сверху */
-            left: 50%;
-            transform: translateX(-50%) rotate(180deg); /* Начальное положение (вверх) */
-            width: 90%; /* Ширина стрелки */
-            height: 20px; /* Высота стрелки */
-            background-color: transparent;
+        /* Ручка шторки */
+        .drawer-handle {
+            width: 90%; /* Ширина ручки */
+            height: 10px; /* Высота ручки */
+            background-color: #555555;
+            border-radius: 5px;
+            margin: 10px auto;
             cursor: pointer;
-            transition: transform 0.3s ease;
-        }
-
-        /* Иконка стрелки */
-        .drawer-arrow::before {
-            content: "▼"; /* Символ стрелки */
-            font-size: 24px;
-            color: white;
-            display: block;
-            text-align: center;
-        }
-
-        /* Стрелка вниз, когда шторка открыта */
-        .drawer.open .drawer-arrow {
-            transform: translateX(-50%) rotate(0deg); /* Поворот стрелки вниз */
         }
 
         /* Текст под нижними кнопками */
@@ -287,12 +270,12 @@
 
     <!-- Шторка -->
     <div class="drawer" id="drawer">
-        <div class="drawer-arrow" id="drawer-arrow"></div>
+        <div class="drawer-handle" id="drawer-handle"></div>
     </div>
 
     <script>
         const drawer = document.getElementById('drawer');
-        const drawerArrow = document.getElementById('drawer-arrow');
+        const drawerHandle = document.getElementById('drawer-handle');
 
         let isOpen = false;
 
@@ -301,15 +284,13 @@
             isOpen = !isOpen;
             if (isOpen) {
                 drawer.style.bottom = "0%"; // Открываем шторку
-                drawer.classList.add('open'); // Добавляем класс для поворота стрелки
             } else {
                 drawer.style.bottom = "-60%"; // Закрываем шторку
-                drawer.classList.remove('open'); // Убираем класс для поворота стрелки
             }
         };
 
-        // Обработчик клика по стрелке
-        drawerArrow.addEventListener('click', toggleDrawer);
+        // Обработчик клика по ручке
+        drawerHandle.addEventListener('click', toggleDrawer);
     </script>
 </body>
 </html>
