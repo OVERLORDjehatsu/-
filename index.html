@@ -305,7 +305,7 @@
         };
 
         // События для мыши
-        drawerHandle.addEventListener('mousedown', (e) => {
+        drawer.addEventListener('mousedown', (e) => {
             startDrag(e.clientY);
         });
 
@@ -316,7 +316,7 @@
         document.addEventListener('mouseup', endDrag);
 
         // События для касаний
-        drawerHandle.addEventListener('touchstart', (e) => {
+        drawer.addEventListener('touchstart', (e) => {
             e.preventDefault(); // Предотвращаем стандартное поведение
             startDrag(e.touches[0].clientY);
         });
