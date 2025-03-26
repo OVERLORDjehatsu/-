@@ -48,8 +48,8 @@
         /* Общие стили для кнопок */
         .my-button {
             position: absolute;
-            background-color: #242424;
-            border-radius: 20px;
+            background-color: #242e38;
+            border-radius: 15px;
             font-size: 2rem;
             color: white;
             cursor: pointer;
@@ -68,16 +68,16 @@
         /* Первая кнопка (слева) */
         .my-button.left {
             top: 45%;
-            left: 5%;
-            width: 31%;
+            left: 11%;
+            width: 26%;
             height: 45%;
         }
 
         /* Вторая кнопка (справа) */
         .my-button.right {
             top: 45%;
-            right: 5%;
-            width: 31%;
+            right: 11%;
+            width: 26%;
             height: 45%;
         }
 
@@ -113,87 +113,6 @@
             overflow: hidden;
         }
 
-        /* Стили для новых изображений */
-        .image {
-            position: absolute;
-            background-image: url('https://i.imgur.com/sOo9pZi.png');
-            background-size: contain;
-            background-repeat: no-repeat;
-            background-position: center;
-            opacity: 0.5;
-            width: 100%;
-            height: 100%;
-            border: none;
-            display: block;
-        }
-
-        .image-1 {
-            top: 0%;
-            left: 30%;
-        }
-
-        .image-2 {
-            bottom: 14%;
-            left: 14%;
-        }
-
-        .image-3 {
-            top: 0%;
-            right: 30%;
-        }
-
-        .image-4 {
-            bottom: 14%;
-            right: 14%;
-        }
-
-        .image-5 {
-            top: 14%;
-            right: 14%;
-        }
-
-        .image-6 {
-            top: 14%;
-            left: 14%;
-        }
-
-        /* Текст под нижними кнопками */
-        .button-text {
-            position: absolute;
-            color: white;
-            font-size: 1rem;
-            text-align: center;
-            width: 100%;
-            z-index: 1;
-        }
-
-        /* Текст под левой нижней кнопкой */
-        .button-text.bottom-left {
-            top: calc(45% + 100% + 5px);
-            left: 5%;
-            width: 15.5%;
-        }
-
-        /* Текст под правой нижней кнопкой */
-        .button-text.bottom-right {
-            top: calc(45% + 100% + 5px + 5%);
-            left: calc(5% + 15.5% + 2%);
-            width: 15.5%;
-        }
-
-        /* Текст под центральной нижней кнопкой */
-        .button-text.bottom-center {
-            position: absolute;
-            bottom: 10%;
-            left: 27%;
-            transform: translateX(-50%);
-            width: auto;
-            font-family: 'Open Sans', sans-serif;
-            font-size: 0.7rem;
-            color: white;
-            text-align: none;
-            font-weight: bold;
-        }
 
         /* Эффект при наведении на кнопку */
         .my-button:hover {
@@ -206,29 +125,7 @@
             transition: transform 0.1s;
         }
 
-        /* Шторка */
-        .drawer {
-            position: fixed;
-            bottom: -60%;
-            left: 0;
-            width: 100%;
-            height: 60%;
-            background-color: #242e38;
-            transition: bottom 0.3s;
-            z-index: 10;
-        }
 
-        .drawer-handle {
-            position: absolute;
-            top: -30px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 100px;
-            height: 30px;
-            background-color: #242424;
-            border-radius: 10px 10px 0 0;
-            cursor: pointer;
-        }
 
         /* Медиазапрос для мобильных устройств */
         @media (max-width: 600px) {
@@ -294,23 +191,7 @@
     <button class="my-button bottom-left"></button>
     <button class="my-button bottom-right"></button>
 
-    <!-- Центральная нижняя кнопка с изображениями -->
-    <button class="my-button bottom-center">
-        <span class="image image-1"></span>
-        <span class="image image-2"></span>
-        <span class="image image-3"></span>
-        <span class="image image-4"></span>
-        <span class="image image-5"></span>
-        <span class="image image-6"></span>
-    </button>
 
-    <!-- Текст под кнопкой -->
-    <div class="button-text bottom-center">Traffic race</div>
-
-    <!-- Шторка -->
-    <div class="drawer" id="drawer">
-        <div class="drawer-handle" id="drawer-handle"></div>
-    </div>
 
     <script>
         const drawer = document.getElementById('drawer');
@@ -318,18 +199,6 @@
 
         let isOpen = false;
 
-        // Функция для открытия/закрытия шторки
-        const toggleDrawer = () => {
-            isOpen = !isOpen;
-            if (isOpen) {
-                drawer.style.bottom = "0%"; // Открываем шторку
-            } else {
-                drawer.style.bottom = "-60%"; // Закрываем шторку
-            }
-        };
-
-        // Обработчик клика по ручке
-        drawerHandle.addEventListener('click', toggleDrawer);
     </script>
 </body>
 </html>
