@@ -20,13 +20,24 @@
             overflow: hidden;
         }
 
-        /* Темно-серая панель */
+        /* Верхняя фоновая панель */
         .top-panel {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 37%;
+            background-color: #242e38;
+            border-radius: 0 0 0 0;
+        }
+
+        /* Нижняя фоновая панель*/
+        .bottom-panel {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 18%;
             background-color: #242e38;
             border-radius: 0 0 0 0;
         }
@@ -143,28 +154,7 @@
         }
 
 
-        /* Шторка */
-        .drawer {
-            position: absolute;
-            bottom: -60%;
-            left: 5%;
-            width: 90%;
-            height: 70%;
-            background-color: #242424;
-            border-radius: 25px 25px 0 0;
-            transition: bottom 0.3s ease;
-            touch-action: none;
-        }
 
-        /* Ручка шторки */
-        .drawer-handle {
-            width: 50%; /* Ширина ручки */
-            height: 5px; /* Высота ручки */
-            background-color: #555555;
-            border-radius: 5px;
-            margin: 10px auto;
-            cursor: pointer;
-        }
 
         /* Текст под нижними кнопками */
         .button-text {
