@@ -4,10 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mini App</title>
-    <!-- Подключение шрифта Open Sans -->
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        /* Основной фон страницы */
+        /* Основные стили */
         body {
             margin: 0;
             padding: 0;
@@ -18,10 +17,10 @@
             align-items: center;
             font-family: Arial, sans-serif;
             overflow: hidden;
-            position: relative; /* Добавлено для корректного позиционирования абсолютных элементов */
+            position: relative;
         }
 
-        /* Верхняя фоновая панель */
+        /* Фоновые панели */
         .top-panel {
             position: absolute;
             top: 0;
@@ -29,11 +28,9 @@
             width: 100%;
             height: 37%;
             background-color: #242e38;
-            border-radius: 0;
             z-index: 0;
         }
 
-        /* Нижняя фоновая панель */
         .bottom-panel {
             position: absolute;
             bottom: 0;
@@ -41,132 +38,61 @@
             width: 100%;
             height: 18.5%;
             background-color: #242e38;
-            border-radius: 0;
             z-index: 0;
         }
 
-        /* Общие стили для кнопок */
+        /* Стили кнопок */
         .my-button {
             position: absolute;
             background-color: #242e38;
             border-radius: 15px;
-            font-size: 2rem;
             color: white;
             cursor: pointer;
             transition: transform 0.2s;
-            outline: none;
             border: none;
-            -webkit-tap-highlight-color: transparent;
             display: flex;
             justify-content: center;
-            align-items: flex-start;
-            padding-top: 20px;
+            align-items: center;
             font-weight: bold;
-            z-index: 1; /* Кнопки поверх фоновых панелей */
+            z-index: 1;
         }
 
-        /* Первая кнопка (слева) */
+        /* Расположение кнопок */
         .my-button.left {
             top: 45%;
-            left: 11%;
+            left: 25%;
             width: 15%;
             height: 45%;
+            transform: translateX(-50%);
         }
 
-        /* Вторая кнопка (справа) */
         .my-button.right {
             top: 45%;
-            right: 11%;
+            right: 25%;
             width: 15%;
             height: 45%;
+            transform: translateX(50%);
         }
 
-        /* Третья кнопка (под левой, левая часть) */
-        .my-button.bottom-left {
-            top: calc(45% + 50%);
-            left: 5%;
-            width: 15.5%;
-            height: 47%;
-        }
-
-        /* Четвертая кнопка (под левой, правая часть) */
-        .my-button.bottom-right {
-            top: calc(45% + 50%);
-            left: calc(5% + 15.5% + 2%);
-            width: 15.5%;
-            height: 47%;
-        }
-
-        /* Пятая кнопка (под правой) */
-        .my-button.bottom-center {
-            position: absolute;
-            top: calc(45% + 50%);
-            right: 5%;
-            width: 31%;
-            height: 47%;
-            background-image:
-                url('https://i.imgur.com/xauz5Eq.png'),
-                linear-gradient(to right, #5de0e6, #004aad);
-            background-size: auto 135%, 100% 100%;
-            background-position: center, center;
-            background-repeat: no-repeat;
-            overflow: hidden;
-        }
-
-
-        /* Эффект при наведении на кнопку */
+        /* Эффекты кнопок */
         .my-button:hover {
-            transform: scale(0.95);
+            transform: scale(0.95) translateX(var(--tx));
         }
 
-        /* Эффект при нажатии на кнопку */
         .my-button:active {
-            transform: scale(0.9);
+            transform: scale(0.9) translateX(var(--tx));
             transition: transform 0.1s;
         }
 
-
-
-        /* Медиазапрос для мобильных устройств */
+        /* Мобильная версия */
         @media (max-width: 600px) {
             .my-button.left,
             .my-button.right {
-                width: 42%;
+                width: 25%;
                 height: 20vh;
-                font-size: 1.5rem;
-            }
-
-            .my-button.bottom-left,
-            .my-button.bottom-right {
-                width: 20%;
-                height: 8vh;
-                font-size: 1.2rem;
-                top: calc(45% + 25vh);
-            }
-
-            .my-button.bottom-left {
-                left: 5%;
-            }
-
-            .my-button.bottom-right {
-                left: calc(5% + 20% + 2%);
-            }
-
-            .my-button.bottom-center {
-                width: 42%;
-                height: 8vh;
-                top: calc(45% + 25vh);
-                right: 5%;
-            }
-
-            .button-text {
-                font-size: 0.9rem;
-            }
-
-            .button-text.bottom-left,
-            .button-text.bottom-right,
-            .button-text.bottom-center {
-                top: calc(45% + 30vh);
+                left: 25%;
+                right: 25%;
+                transform: none;
             }
 
             .top-panel {
@@ -181,24 +107,16 @@
 </head>
 <body>
     <div class="top-panel"></div>
-    <div class="bottom-panel"></div> <!-- Добавлена нижняя панель -->
+    <div class="bottom-panel"></div>
 
-    <!-- Верхние кнопки -->
+    <!-- Кнопки -->
     <button class="my-button left"></button>
     <button class="my-button right"></button>
 
-    <!-- Нижние кнопки -->
-    <button class="my-button bottom-left"></button>
-    <button class="my-button bottom-right"></button>
-
-
-
     <script>
-        const drawer = document.getElementById('drawer');
-        const drawerHandle = document.getElementById('drawer-handle');
-
-        let isOpen = false;
-
+        // Добавляем переменные для transform
+        document.querySelector('.my-button.left').style.setProperty('--tx', '-50%');
+        document.querySelector('.my-button.right').style.setProperty('--tx', '50%');
     </script>
 </body>
 </html>
