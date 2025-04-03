@@ -20,15 +20,15 @@
             position: absolute;
             top: 0;
             width: 100%;
-            height: 37%;
+            height: 30%; /* Уменьшил верхнюю панель, чтобы кнопки не задевали */
             background-color: #242e38;
         }
 
         .bottom-panel {
             position: absolute;
-            bottom: -25%; /* Сдвигаем панель на 25% ниже */
+            bottom: -25%; /* Опустил на 25% ниже */
             width: 100%;
-            height: 25%;
+            height: 25%; /* Высота панели 25% */
             background-color: #242e38;
         }
 
@@ -39,16 +39,17 @@
             left: 50%;
             transform: translate(-50%, -50%);
             width: 80%;
+            max-width: 600px;
             display: flex;
             justify-content: space-between;
-            box-sizing: border-box;
+            gap: 20px; /* Равное расстояние между кнопками */
         }
 
         /* Стили кнопок */
         .my-button {
-            width: 30vh; /* Квадратные кнопки */
-            height: 30vh;
-            aspect-ratio: 1/1; /* Гарантируем квадратную форму */
+            width: 20vh; /* Уменьшил размер кнопок */
+            height: 20vh;
+            aspect-ratio: 1/1; /* Гарантирует квадратную форму */
             background-color: #242e38;
             border-radius: 15px;
             border: none;
@@ -70,15 +71,16 @@
         @media (max-width: 600px) {
             .buttons-container {
                 width: 90%;
+                gap: 10px;
             }
 
             .my-button {
-                width: 20vh;
-                height: 20vh;
+                width: 15vh;
+                height: 15vh;
             }
 
             .top-panel {
-                height: 40vh;
+                height: 25vh;
             }
 
             .bottom-panel {
