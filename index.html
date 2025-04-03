@@ -39,15 +39,15 @@
             left: 0;
             width: 100%;
             display: flex;
-            justify-content: space-between;
-            padding: 0 25%;
+            justify-content: center;
+            gap: 10%;
             box-sizing: border-box;
         }
 
         /* Стили кнопок */
         .my-button {
-            width: 30%;
-            height: 45vh;
+            width: 20%; /* Ширина в процентах */
+            aspect-ratio: 1/1; /* Сохраняем квадратную форму */
             background-color: #242e38;
             border-radius: 15px;
             border: none;
@@ -67,20 +67,19 @@
         /* Мобильная версия */
         @media (max-width: 600px) {
             .buttons-container {
-                padding: 0 15%;
+                gap: 5%;
             }
 
             .my-button {
-                width: 25%;
-                height: 20vh;
+                width: 30%;
             }
 
             .top-panel {
-                height: 40vh;
+                height: 40%;
             }
 
             .bottom-panel {
-                height: 20vh;
+                height: 15%;
             }
         }
     </style>
