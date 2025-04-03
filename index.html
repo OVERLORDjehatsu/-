@@ -26,34 +26,36 @@
 
         .bottom-panel {
             position: absolute;
-            bottom: 0;
+            bottom: -25%; /* Сдвигаем панель на 25% ниже */
             width: 100%;
-            height: 18.5%;
+            height: 25%;
             background-color: #242e38;
         }
 
         /* Контейнер для кнопок */
         .buttons-container {
             position: absolute;
-            top: 45%;
-            left: 0;
-            width: 100%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80%;
             display: flex;
             justify-content: space-between;
-            padding: 0 25%;
             box-sizing: border-box;
         }
 
         /* Стили кнопок */
         .my-button {
-            width: 15%;
-            height: 45vh;
+            width: 30vh; /* Квадратные кнопки */
+            height: 30vh;
+            aspect-ratio: 1/1; /* Гарантируем квадратную форму */
             background-color: #242e38;
             border-radius: 15px;
             border: none;
             color: white;
             cursor: pointer;
             transition: transform 0.2s;
+            flex-shrink: 0;
         }
 
         .my-button:hover {
@@ -67,11 +69,11 @@
         /* Мобильная версия */
         @media (max-width: 600px) {
             .buttons-container {
-                padding: 0 15%;
+                width: 90%;
             }
 
             .my-button {
-                width: 25%;
+                width: 20vh;
                 height: 20vh;
             }
 
@@ -81,6 +83,7 @@
 
             .bottom-panel {
                 height: 20vh;
+                bottom: -20%;
             }
         }
     </style>
