@@ -34,6 +34,8 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
+            padding: 2% 5%; /* Защитные отступы */
+            box-sizing: border-box;
         }
 
         .bottom-panel {
@@ -44,19 +46,21 @@
             background-color: #242e38;
         }
 
-        /* Контейнеры для кнопок */
-        .buttons-row {
-            display: flex;
-            justify-content: center;
+        /* Контейнер для всех кнопок */
+        .buttons-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr; /* 2 колонки */
+            gap: 4%; /* Равные промежутки */
             width: 100%;
-            gap: 5%; /* Общее расстояние между кнопками */
-            margin: 2% 0;
-            position: relative;
+            max-width: 600px;
+            height: 100%;
+            place-items: center;
         }
 
         /* Стили кнопок */
         .my-button {
-            width: 20%; /* Увеличено на 10% (было 15%) */
+            width: 100%;
+            max-width: 150px;
             aspect-ratio: 1/1;
             background-color: #1b2026;
             border-radius: 15px;
@@ -65,31 +69,15 @@
             cursor: pointer;
             transition: transform 0.2s;
             box-shadow: 0 4px 8px rgba(0,0,0,0.3);
-            position: relative;
-            transform: translateY(5%); /* Сдвиг вверх на 3% */
-        }
-
-        /* Уменьшение расстояния между левыми и правыми кнопками на 5% */
-        .buttons-row .my-button:nth-child(1) {
-            margin-right: 5%;
-        }
-        .buttons-row .my-button:nth-child(2) {
-            margin-left: 5%;
-        }
-        .buttons-row .my-button:nth-child(3) {
-            margin-right: 5%;
-        }
-        .buttons-row .my-button:nth-child(4) {
-            margin-left: 5%;
         }
 
         .my-button:hover {
-            transform: translateY(5%) scale(0.9);
+            transform: scale(0.95);
             background-color: #22282f;
         }
 
         .my-button:active {
-            transform: translateY(5%) scale(0.9);
+            transform: scale(0.9);
         }
 
         /* Мобильная версия */
@@ -101,33 +89,19 @@
             .central-panel {
                 top: calc(40% + 1.6%);
                 height: calc(100% - 40% - 15% - 3.2%);
+                padding: 3%;
             }
 
             .bottom-panel {
                 height: 15%;
             }
 
-            .buttons-row {
+            .buttons-grid {
                 gap: 3%;
-                margin: 1.5% 0;
             }
 
             .my-button {
-                width: 20%; /* Увеличено для мобилок */
-            }
-
-            /* Адаптация сдвигов для мобилок */
-            .buttons-row .my-button:nth-child(1) {
-                margin-right: -3%;
-            }
-            .buttons-row .my-button:nth-child(2) {
-                margin-left: -3%;
-            }
-            .buttons-row .my-button:nth-child(3) {
-                margin-right: -3%;
-            }
-            .buttons-row .my-button:nth-child(4) {
-                margin-left: -3%;
+                max-width: 120px;
             }
         }
     </style>
@@ -135,13 +109,10 @@
 <body>
     <div class="top-panel"></div>
     <div class="central-panel">
-        <!-- Первый ряд кнопок -->
-        <div class="buttons-row">
+        <!-- Сетка 2x2 -->
+        <div class="buttons-grid">
             <button class="my-button"></button>
             <button class="my-button"></button>
-        </div>
-        <!-- Второй ряд кнопок -->
-        <div class="buttons-row">
             <button class="my-button"></button>
             <button class="my-button"></button>
         </div>
