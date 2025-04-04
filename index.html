@@ -32,9 +32,9 @@
             background-color: #242e38;
             display: flex;
             flex-direction: column;
-            justify-content: center;
+            justify-content: space-evenly;
             align-items: center;
-            padding: 2% 5%; /* Защитные отступы */
+            padding: 2% 0;
             box-sizing: border-box;
         }
 
@@ -46,22 +46,20 @@
             background-color: #242e38;
         }
 
-        /* Контейнер для всех кнопок */
-        .buttons-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr; /* 2 колонки */
-            gap: 4%; /* Равные промежутки */
+        /* Ряды кнопок */
+        .button-row {
+            display: flex;
+            justify-content: center;
             width: 100%;
-            max-width: 600px;
-            height: 100%;
-            place-items: center;
+            gap: 10%;
         }
 
         /* Стили кнопок */
         .my-button {
-            width: 100%;
+            width: 20vmin;
+            height: 20vmin;
             max-width: 150px;
-            aspect-ratio: 1/1;
+            max-height: 150px;
             background-color: #1b2026;
             border-radius: 15px;
             border: none;
@@ -69,11 +67,11 @@
             cursor: pointer;
             transition: transform 0.2s;
             box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+            flex-shrink: 0;
         }
 
         .my-button:hover {
             transform: scale(0.95);
-            background-color: #22282f;
         }
 
         .my-button:active {
@@ -89,19 +87,19 @@
             .central-panel {
                 top: calc(40% + 1.6%);
                 height: calc(100% - 40% - 15% - 3.2%);
-                padding: 3%;
             }
 
             .bottom-panel {
                 height: 15%;
             }
 
-            .buttons-grid {
-                gap: 3%;
+            .button-row {
+                gap: 5%;
             }
 
             .my-button {
-                max-width: 120px;
+                width: 15vmin;
+                height: 15vmin;
             }
         }
     </style>
@@ -109,10 +107,11 @@
 <body>
     <div class="top-panel"></div>
     <div class="central-panel">
-        <!-- Сетка 2x2 -->
-        <div class="buttons-grid">
+        <div class="button-row">
             <button class="my-button"></button>
             <button class="my-button"></button>
+        </div>
+        <div class="button-row">
             <button class="my-button"></button>
             <button class="my-button"></button>
         </div>
