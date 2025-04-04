@@ -56,7 +56,7 @@
 
         /* Стили кнопок */
         .my-button {
-            width: 25%; /* Увеличено на 10% (было 15%) */
+            width: 20%; /* Увеличено на 10% (было 15%) */
             aspect-ratio: 1/1;
             background-color: #1b2026;
             border-radius: 15px;
@@ -66,30 +66,30 @@
             transition: transform 0.2s;
             box-shadow: 0 4px 8px rgba(0,0,0,0.3);
             position: relative;
-            transform: translateY(-3%); /* Сдвиг вверх на 3% */
+            transform: translateY(5%); /* Сдвиг вверх на 3% */
         }
 
         /* Уменьшение расстояния между левыми и правыми кнопками на 5% */
         .buttons-row .my-button:nth-child(1) {
-            margin-right: -5%;
+            margin-right: 5%;
         }
         .buttons-row .my-button:nth-child(2) {
-            margin-left: -5%;
+            margin-left: 5%;
         }
         .buttons-row .my-button:nth-child(3) {
-            margin-right: -5%;
+            margin-right: 5%;
         }
         .buttons-row .my-button:nth-child(4) {
-            margin-left: -5%;
+            margin-left: 5%;
         }
 
         .my-button:hover {
-            transform: translateY(-3%) scale(0.95);
+            transform: translateY(5%) scale(0.9);
             background-color: #22282f;
         }
 
         .my-button:active {
-            transform: translateY(-3%) scale(0.9);
+            transform: translateY(5%) scale(0.9);
         }
 
         /* Мобильная версия */
@@ -113,7 +113,7 @@
             }
 
             .my-button {
-                width: 30%; /* Увеличено для мобилок */
+                width: 20%; /* Увеличено для мобилок */
             }
 
             /* Адаптация сдвигов для мобилок */
