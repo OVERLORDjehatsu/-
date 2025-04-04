@@ -26,10 +26,14 @@
 
         .central-panel {
             position: absolute;
-            top: calc(37% + 1.6%); /* 1.6% отступа от верхней панели */
+            top: calc(37% + 1.6%);
             width: 100%;
-            height: calc(100% - 37% - 12% - 3.2%); /* Вычитаем верхнюю, нижнюю и два отступа по 1.6% */
+            height: calc(100% - 37% - 12% - 3.2%);
             background-color: #242e38;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
         }
 
         .bottom-panel {
@@ -40,24 +44,20 @@
             background-color: #242e38;
         }
 
-        /* Контейнер для кнопок */
-        .buttons-container {
-            position: absolute;
-            top: 45%;
-            left: 0;
-            width: 100%;
+        /* Контейнеры для кнопок */
+        .buttons-row {
             display: flex;
             justify-content: center;
-            gap: 10%;
-            box-sizing: border-box;
-            z-index: 2;
+            width: 100%;
+            gap: 5%;
+            margin: 2% 0;
         }
 
         /* Стили кнопок */
         .my-button {
-            width: 20%;
+            width: 15%;
             aspect-ratio: 1/1;
-            background-color: #2a3642;
+            background-color: #1b2026;
             border-radius: 15px;
             border: none;
             color: white;
@@ -68,7 +68,7 @@
 
         .my-button:hover {
             transform: scale(0.95);
-            background-color: #303d4a;
+            background-color: #22282f;
         }
 
         .my-button:active {
@@ -77,14 +77,6 @@
 
         /* Мобильная версия */
         @media (max-width: 600px) {
-            .buttons-container {
-                gap: 5%;
-            }
-
-            .my-button {
-                width: 30%;
-            }
-
             .top-panel {
                 height: 40%;
             }
@@ -97,18 +89,32 @@
             .bottom-panel {
                 height: 15%;
             }
+
+            .buttons-row {
+                gap: 3%;
+                margin: 1.5% 0;
+            }
+
+            .my-button {
+                width: 20%;
+            }
         }
     </style>
 </head>
 <body>
     <div class="top-panel"></div>
-    <div class="central-panel"></div>
-    <div class="bottom-panel"></div>
-
-    <!-- Контейнер с двумя кнопками -->
-    <div class="buttons-container">
-        <button class="my-button"></button>
-        <button class="my-button"></button>
+    <div class="central-panel">
+        <!-- Первый ряд кнопок -->
+        <div class="buttons-row">
+            <button class="my-button"></button>
+            <button class="my-button"></button>
+        </div>
+        <!-- Второй ряд кнопок -->
+        <div class="buttons-row">
+            <button class="my-button"></button>
+            <button class="my-button"></button>
+        </div>
     </div>
+    <div class="bottom-panel"></div>
 </body>
 </html>
