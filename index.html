@@ -51,6 +51,7 @@
             width: 100%;
             gap: 5%;
             margin: 2% 0;
+            position: relative;
         }
 
         /* Стили кнопок */
@@ -64,6 +65,19 @@
             cursor: pointer;
             transition: transform 0.2s;
             box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+            position: relative;
+        }
+
+        /* Сдвиг левых кнопок */
+        .buttons-row .my-button:nth-child(1),
+        .buttons-row .my-button:nth-child(3) {
+            left: -7.5%; /* Сдвигаем на половину ширины кнопки */
+        }
+
+        /* Сдвиг правых кнопок */
+        .buttons-row .my-button:nth-child(2),
+        .buttons-row .my-button:nth-child(4) {
+            left: 7.5%; /* Сдвигаем на половину ширины кнопки */
         }
 
         .my-button:hover {
@@ -97,6 +111,16 @@
 
             .my-button {
                 width: 20%;
+            }
+
+            .buttons-row .my-button:nth-child(1),
+            .buttons-row .my-button:nth-child(3) {
+                left: -10%; /* Увеличиваем сдвиг для мобилок */
+            }
+
+            .buttons-row .my-button:nth-child(2),
+            .buttons-row .my-button:nth-child(4) {
+                left: 10%; /* Увеличиваем сдвиг для мобилок */
             }
         }
     </style>
