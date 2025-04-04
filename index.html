@@ -34,7 +34,7 @@
             flex-wrap: wrap;
             justify-content: center;
             align-content: center;
-            gap: 5%;
+            gap: 6%; /* Увеличил промежутки на 1% для компенсации */
             padding: 2%;
             box-sizing: border-box;
         }
@@ -47,12 +47,12 @@
             background-color: #242e38;
         }
 
-        /* Стили кнопок */
+        /* Стили кнопок (уменьшены на 10%) */
         .my-button {
-            width: 40%;
-            height: 45%;
-            min-width: 120px;
-            min-height: 120px;
+            width: 36%; /* Было 40% */
+            height: 40.5%; /* Было 45% */
+            min-width: 110px; /* Было 120px */
+            min-height: 110px; /* Было 120px */
             background-color: #1b2026;
             border-radius: 15px;
             border: none;
@@ -60,7 +60,6 @@
             cursor: pointer;
             transition: transform 0.2s;
             box-shadow: 0 4px 8px rgba(0,0,0,0.3);
-            margin: 1%;
             flex-shrink: 0;
         }
 
@@ -81,7 +80,7 @@
             .central-panel {
                 top: calc(40% + 1.6%);
                 height: calc(100% - 40% - 15% - 3.2%);
-                gap: 3%;
+                gap: 4%;
             }
 
             .bottom-panel {
@@ -89,8 +88,10 @@
             }
 
             .my-button {
-                width: 45%;
-                height: 45%;
+                width: 40.5%; /* Было 45% */
+                height: 40.5%;
+                min-width: 90px;
+                min-height: 90px;
             }
         }
     </style>
