@@ -30,13 +30,12 @@
             width: 100%;
             height: calc(100% - 37% - 12% - 3.2%);
             background-color: #242e38;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            grid-template-rows: 1fr 1fr;
-            gap: 4%;
-            padding: 4%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 5%; /* Отступ от боковых стенок */
             box-sizing: border-box;
-            place-items: center;
         }
 
         .bottom-panel {
@@ -47,12 +46,18 @@
             background-color: #242e38;
         }
 
+        /* Контейнеры для пар кнопок */
+        .button-pair {
+            display: flex;
+            width: 100%;
+            justify-content: space-between;
+        }
+
         /* Стили кнопок */
         .my-button {
-            width: 100%;
-            height: 100%;
-            max-width: 200px;
+            width: 40%; /* Ширина кнопки */
             aspect-ratio: 1/1;
+            max-width: 180px;
             background-color: #1b2026;
             border-radius: 15px;
             border: none;
@@ -79,12 +84,16 @@
             .central-panel {
                 top: calc(40% + 1.6%);
                 height: calc(100% - 40% - 15% - 3.2%);
-                gap: 3%;
-                padding: 3%;
+                padding: 0 3%; /* Меньше отступ на мобильных */
             }
 
             .bottom-panel {
                 height: 15%;
+            }
+
+            .my-button {
+                width: 45%; /* Чуть шире на мобильных */
+                max-width: 140px;
             }
         }
     </style>
@@ -92,10 +101,16 @@
 <body>
     <div class="top-panel"></div>
     <div class="central-panel">
-        <button class="my-button"></button>
-        <button class="my-button"></button>
-        <button class="my-button"></button>
-        <button class="my-button"></button>
+        <!-- Первая пара кнопок -->
+        <div class="button-pair">
+            <button class="my-button"></button>
+            <button class="my-button"></button>
+        </div>
+        <!-- Вторая пара кнопок -->
+        <div class="button-pair">
+            <button class="my-button"></button>
+            <button class="my-button"></button>
+        </div>
     </div>
     <div class="bottom-panel"></div>
 </body>
