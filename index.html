@@ -31,10 +31,11 @@
             height: calc(100% - 37% - 12% - 3.2%);
             background-color: #242e38;
             display: flex;
-            flex-direction: column;
-            justify-content: space-evenly;
-            align-items: center;
-            padding: 2% 0;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-content: center;
+            gap: 5%;
+            padding: 2%;
             box-sizing: border-box;
         }
 
@@ -46,20 +47,12 @@
             background-color: #242e38;
         }
 
-        /* Ряды кнопок */
-        .button-row {
-            display: flex;
-            justify-content: center;
-            width: 100%;
-            gap: 10%;
-        }
-
         /* Стили кнопок */
         .my-button {
-            width: 20vmin;
-            height: 20vmin;
-            max-width: 150px;
-            max-height: 150px;
+            width: 40%;
+            height: 45%;
+            min-width: 120px;
+            min-height: 120px;
             background-color: #1b2026;
             border-radius: 15px;
             border: none;
@@ -67,6 +60,7 @@
             cursor: pointer;
             transition: transform 0.2s;
             box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+            margin: 1%;
             flex-shrink: 0;
         }
 
@@ -87,19 +81,16 @@
             .central-panel {
                 top: calc(40% + 1.6%);
                 height: calc(100% - 40% - 15% - 3.2%);
+                gap: 3%;
             }
 
             .bottom-panel {
                 height: 15%;
             }
 
-            .button-row {
-                gap: 5%;
-            }
-
             .my-button {
-                width: 15vmin;
-                height: 15vmin;
+                width: 45%;
+                height: 45%;
             }
         }
     </style>
@@ -107,14 +98,10 @@
 <body>
     <div class="top-panel"></div>
     <div class="central-panel">
-        <div class="button-row">
-            <button class="my-button"></button>
-            <button class="my-button"></button>
-        </div>
-        <div class="button-row">
-            <button class="my-button"></button>
-            <button class="my-button"></button>
-        </div>
+        <button class="my-button"></button>
+        <button class="my-button"></button>
+        <button class="my-button"></button>
+        <button class="my-button"></button>
     </div>
     <div class="bottom-panel"></div>
 </body>
