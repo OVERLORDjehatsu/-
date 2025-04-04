@@ -26,9 +26,9 @@
 
         .central-panel {
             position: absolute;
-            top: calc(37% + 2%); /* 4% отступа от верхней панели */
+            top: calc(37% + 1.6%); /* 1.6% отступа от верхней панели */
             width: 100%;
-            height: calc(100% - 37% - 12% - 8%); /* Вычитаем верхнюю, нижнюю и два отступа по 4% */
+            height: calc(100% - 37% - 12% - 3.2%); /* Вычитаем верхнюю, нижнюю и два отступа по 1.6% */
             background-color: #242e38;
         }
 
@@ -50,7 +50,7 @@
             justify-content: center;
             gap: 10%;
             box-sizing: border-box;
-            z-index: 2; /* Чтобы кнопки были поверх панелей */
+            z-index: 2;
         }
 
         /* Стили кнопок */
@@ -90,8 +90,8 @@
             }
 
             .central-panel {
-                top: calc(40% + 2%);
-                height: calc(100% - 40% - 15% - 8%);
+                top: calc(40% + 1.6%);
+                height: calc(100% - 40% - 15% - 3.2%);
             }
 
             .bottom-panel {
