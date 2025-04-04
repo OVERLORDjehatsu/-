@@ -24,6 +24,14 @@
             background-color: #242e38;
         }
 
+        .central-panel {
+            position: absolute;
+            top: calc(37% + 4%); /* 4% отступа от верхней панели */
+            width: 100%;
+            height: calc(100% - 37% - 12% - 8%); /* Вычитаем верхнюю, нижнюю и два отступа по 4% */
+            background-color: #242e38;
+        }
+
         .bottom-panel {
             position: absolute;
             bottom: 0;
@@ -42,22 +50,25 @@
             justify-content: center;
             gap: 10%;
             box-sizing: border-box;
+            z-index: 2; /* Чтобы кнопки были поверх панелей */
         }
 
         /* Стили кнопок */
         .my-button {
-            width: 20%; /* Ширина в процентах */
-            aspect-ratio: 1/1; /* Сохраняем квадратную форму */
-            background-color: #242e38;
+            width: 20%;
+            aspect-ratio: 1/1;
+            background-color: #2a3642;
             border-radius: 15px;
             border: none;
             color: white;
             cursor: pointer;
             transition: transform 0.2s;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
         }
 
         .my-button:hover {
             transform: scale(0.95);
+            background-color: #303d4a;
         }
 
         .my-button:active {
@@ -78,6 +89,11 @@
                 height: 40%;
             }
 
+            .central-panel {
+                top: calc(40% + 4%);
+                height: calc(100% - 40% - 15% - 8%);
+            }
+
             .bottom-panel {
                 height: 15%;
             }
@@ -86,6 +102,7 @@
 </head>
 <body>
     <div class="top-panel"></div>
+    <div class="central-panel"></div>
     <div class="bottom-panel"></div>
 
     <!-- Контейнер с двумя кнопками -->
