@@ -31,10 +31,11 @@
             height: calc(100% - 37% - 12% - 3.2%);
             background-color: #242e38;
             display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0 5%; /* Отступ от боковых стенок */
+            flex-wrap: wrap;
+            justify-content: center;
+            align-content: center;
+            gap: 6%; /* Увеличил промежутки на 1% для компенсации */
+            padding: 2%;
             box-sizing: border-box;
         }
 
@@ -46,18 +47,12 @@
             background-color: #242e38;
         }
 
-        /* Контейнеры для пар кнопок */
-        .button-pair {
-            display: flex;
-            width: 100%;
-            justify-content: space-between;
-        }
-
-        /* Стили кнопок */
+        /* Стили кнопок (уменьшены на 10%) */
         .my-button {
-            width: 40%; /* Ширина кнопки */
-            aspect-ratio: 1/1;
-            max-width: 180px;
+            width: 36%; /* Было 40% */
+            height: 40.5%; /* Было 45% */
+            min-width: 110px; /* Было 120px */
+            min-height: 110px; /* Было 120px */
             background-color: #1b2026;
             border-radius: 15px;
             border: none;
@@ -65,6 +60,7 @@
             cursor: pointer;
             transition: transform 0.2s;
             box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+            flex-shrink: 0;
         }
 
         .my-button:hover {
@@ -84,7 +80,7 @@
             .central-panel {
                 top: calc(40% + 1.6%);
                 height: calc(100% - 40% - 15% - 3.2%);
-                padding: 0 3%; /* Меньше отступ на мобильных */
+                gap: 4%;
             }
 
             .bottom-panel {
@@ -92,8 +88,10 @@
             }
 
             .my-button {
-                width: 45%; /* Чуть шире на мобильных */
-                max-width: 140px;
+                width: 40.5%; /* Было 45% */
+                height: 40.5%;
+                min-width: 90px;
+                min-height: 90px;
             }
         }
     </style>
@@ -101,16 +99,10 @@
 <body>
     <div class="top-panel"></div>
     <div class="central-panel">
-        <!-- Первая пара кнопок -->
-        <div class="button-pair">
-            <button class="my-button"></button>
-            <button class="my-button"></button>
-        </div>
-        <!-- Вторая пара кнопок -->
-        <div class="button-pair">
-            <button class="my-button"></button>
-            <button class="my-button"></button>
-        </div>
+        <button class="my-button"></button>
+        <button class="my-button"></button>
+        <button class="my-button"></button>
+        <button class="my-button"></button>
     </div>
     <div class="bottom-panel"></div>
 </body>
