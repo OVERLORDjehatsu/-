@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mini App</title>
+    <title>Positioned Button App</title>
     <style>
         body {
             margin: 0;
@@ -30,10 +30,6 @@
             width: 100%;
             height: calc(100% - 37% - 12% - 3.2%);
             background-color: #242e38;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 2%;
             box-sizing: border-box;
         }
 
@@ -45,12 +41,10 @@
             background-color: #242e38;
         }
 
-        /* Стиль квадратной кнопки traffice */
+        /* Стиль и позиция кнопки */
         #traffice {
-            width: 120px; /* Фиксированный размер для квадрата */
-            height: 120px; /* Фиксированный размер для квадрата */
-            left: 20%
-            top:
+            width: 120px;
+            height: 120px;
             background-color: #1b2026;
             border-radius: 15px;
             border: none;
@@ -58,15 +52,18 @@
             cursor: pointer;
             transition: transform 0.2s;
             box-shadow: 0 4px 8px rgba(0,0,0,0.3);
-            position: absolute; /* Позволит вам свободно позиционировать */
+            position: absolute;
+            left: 20%; /* 20% от левого края */
+            top: calc(50% - 5%); /* На 5% выше центра */
+            transform: translateY(-50%); /* Вертикальное центрирование */
         }
 
         #traffice:hover {
-            transform: scale(0.95);
+            transform: translateY(-50%) scale(0.95);
         }
 
         #traffice:active {
-            transform: scale(0.9);
+            transform: translateY(-50%) scale(0.9);
         }
 
         /* Мобильная версия */
@@ -85,7 +82,7 @@
             }
 
             #traffice {
-                width: 100px; /* Уменьшенный размер для мобильных */
+                width: 100px;
                 height: 100px;
             }
         }
@@ -97,15 +94,5 @@
         <button id="traffice"></button>
     </div>
     <div class="bottom-panel"></div>
-
-    <script>
-        // Пример как можно управлять позицией кнопки
-        document.addEventListener('DOMContentLoaded', function() {
-            const button = document.getElementById('traffice');
-            // Здесь вы можете установить любые координаты
-            // button.style.left = '100px';
-            // button.style.top = '200px';
-        });
-    </script>
 </body>
 </html>
