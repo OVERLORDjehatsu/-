@@ -43,19 +43,22 @@
 
         /* Стиль и позиция кнопки */
         #traffice {
-            width: 150px;
-            height: 150px;
+            width: 150px !important;   /* Принудительное применение */
+            height: 150px !important;  /* Принудительное применение */
+            min-width: 150px;          /* Запрет уменьшения */
+            min-height: 150px;         /* Запрет уменьшения */
             background-color: #1b2026;
             border-radius: 10px;
             border: none;
             color: white;
             cursor: pointer;
-            transition: transform 0.2s;
+            transition: all 0.2s;      /* Добавлено all вместо transform */
             box-shadow: 0 4px 8px rgba(0,0,0,0.3);
             position: absolute;
             left: 10%;
-            top: calc(50% - 25%); /* На 5% выше центра */
-            transform: translateY(-50%); /* Вертикальное центрирование */
+            top: calc(50% - 25%);
+            transform: translateY(-50%);
+            box-sizing: border-box;    /* Важно для точных размеров */
         }
 
         #traffice:hover {
