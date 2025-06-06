@@ -1,128 +1,109 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Telegram Mini App</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: sans-serif;
-      background: #18181b;
-      color: white;
-      padding: 1rem;
-    }
-    .card {
-      background: #27272a;
-      border-radius: 1rem;
-      padding: 1rem;
-      margin-bottom: 1rem;
-    }
-    .button {
-      background: #2563eb;
-      color: white;
-      padding: 0.75rem 1rem;
-      border: none;
-      border-radius: 0.75rem;
-      cursor: pointer;
-      width: 100%;
-    }
-    .grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1rem;
-      margin-bottom: 1rem;
-    }
-    .sheet, .aktsii-page {
-      position: fixed;
-      left: 0;
-      right: 0;
-      background: #27272a;
-      z-index: 999;
-      border-radius: 1rem 1rem 0 0;
-      padding: 1rem;
-      display: none;
-    }
-    .sheet {
-      bottom: 0;
-      height: 50%;
-    }
-    .aktsii-page {
-      top: 0;
-      bottom: 0;
-      overflow-y: auto;
-    }
-    .close-btn {
-      float: right;
-      background: none;
-      border: none;
-      color: white;
-      font-size: 1.5rem;
-      cursor: pointer;
-    }
-    .blue-link {
-      color: #60a5fa;
-      cursor: pointer;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mini App</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #1b2026;
+            height: 100vh;
+            font-family: Arial, sans-serif;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Фоновые панели */
+        .top-panel {
+            position: absolute;
+            top: 0;
+            width: 100%;
+            height: 37%;
+            background-color: #242e38;
+        }
+
+        .central-panel {
+            position: absolute;
+            top: calc(37% + 1.6%);
+            width: 100%;
+            height: calc(100% - 37% - 12% - 3.2%);
+            background-color: #242e38;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 2%;
+            box-sizing: border-box;
+        }
+
+        .bottom-panel {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 12%;
+            background-color: #242e38;
+        }
+
+        /* Стиль квадратной кнопки traffice */
+        #traffice {
+            width: 120px; /* Фиксированный размер для квадрата */
+            height: 120px; /* Фиксированный размер для квадрата */
+            background-color: #1b2026;
+            border-radius: 15px;
+            border: none;
+            color: white;
+            cursor: pointer;
+            transition: transform 0.2s;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+            position: absolute; /* Позволит вам свободно позиционировать */
+        }
+
+        #traffice:hover {
+            transform: scale(0.95);
+        }
+
+        #traffice:active {
+            transform: scale(0.9);
+        }
+
+        /* Мобильная версия */
+        @media (max-width: 600px) {
+            .top-panel {
+                height: 40%;
+            }
+
+            .central-panel {
+                top: calc(40% + 1.6%);
+                height: calc(100% - 40% - 15% - 3.2%);
+            }
+
+            .bottom-panel {
+                height: 15%;
+            }
+
+            #traffice {
+                width: 100px; /* Уменьшенный размер для мобильных */
+                height: 100px;
+            }
+        }
+    </style>
 </head>
 <body>
+    <div class="top-panel"></div>
+    <div class="central-panel">
+        <button id="traffice"></button>
+    </div>
+    <div class="bottom-panel"></div>
 
-  <h2>TELEGRAM PARTNERS</h2>
-
-  <div class="card">
-    <p>ID</p>
-    <p>БАЛАНС К ВЫВОДУ 34.05₽</p>
-    <p>КОШЕЛЕК 17.23₽</p>
-    <small style="color: #9ca3af;">Пополнение и вывод средств можно найти в боковом меню</small>
-  </div>
-
-  <div class="grid">
-    <button class="button" onclick="openSheet('ОФФЕРЫ')">ОФФЕРЫ</button>
-    <button class="button" onclick="openSheet('БИРЖА')">БИРЖА</button>
-    <button class="button" style="background:#3f3f46;">КУПИТЬ ТРАФФИК</button>
-    <button class="button" style="background:#3f3f46;">КУПИТЬ РЕКЛАМУ</button>
-    <button class="button" onclick="openSheet('НОВОСТИ')">НОВОСТИ</button>
-    <button class="button" onclick="openSheet('СОБЫТИЕ')">СОБЫТИЕ</button>
-  </div>
-
-  <div class="card">
-    <strong>СПИСОК АКЦИЙ <span style="background:#2563eb; padding: 2px 8px; border-radius: 9999px; font-size: 0.75rem;">NEW</span></strong>
-    <p class="blue-link" onclick="openAktsii()">Перейти к списку »</p>
-  </div>
-
-  <!-- Панель-шторка -->
-  <div id="sheet" class="sheet">
-    <button class="close-btn" onclick="closeSheet()">×</button>
-    <h3 id="sheet-title"></h3>
-    <p>Контент для выбранной панели</p>
-  </div>
-
-  <!-- Страница Акций -->
-  <div id="aktsii-page" class="aktsii-page">
-    <button class="close-btn" onclick="closeAktsii()">×</button>
-    <h3>Список акций</h3>
-    <p>Здесь будет контент страницы акций...</p>
-  </div>
-
-  <script>
-    function openSheet(title) {
-      document.getElementById('sheet-title').innerText = title;
-      document.getElementById('sheet').style.display = 'block';
-    }
-
-    function closeSheet() {
-      document.getElementById('sheet').style.display = 'none';
-    }
-
-    function openAktsii() {
-      document.getElementById('aktsii-page').style.display = 'block';
-    }
-
-    function closeAktsii() {
-      document.getElementById('aktsii-page').style.display = 'none';
-    }
-  </script>
-
+    <script>
+        // Пример как можно управлять позицией кнопки
+        document.addEventListener('DOMContentLoaded', function() {
+            const button = document.getElementById('traffice');
+            // Здесь вы можете установить любые координаты
+            // button.style.left = '100px';
+            // button.style.top = '200px';
+        });
+    </script>
 </body>
 </html>
