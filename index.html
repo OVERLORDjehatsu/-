@@ -41,7 +41,6 @@
             background-color: #242e38;
         }
 
-        /* Стиль и позиция кнопки */
         #traffice {
             width: 140px !important;   /* Принудительное применение */
             height: 140px !important;  /* Принудительное применение */
@@ -61,7 +60,6 @@
             box-sizing: border-box;    /* Важно для точных размеров */
         }
 
-        /* Стиль и позиция кнопки */
         #baners {
             width: 140px !important;   /* Принудительное применение */
             height: 140px !important;  /* Принудительное применение */
@@ -80,6 +78,48 @@
             transform: translateY(-50%);
             box-sizing: border-box;    /* Важно для точных размеров */
         }
+
+        #news {
+            width: 140px !important;   /* Принудительное применение */
+            height: 140px !important;  /* Принудительное применение */
+            min-width: 140px;          /* Запрет уменьшения */
+            min-height: 140px;         /* Запрет уменьшения */
+            background-color: #1b2026;
+            border-radius: 12px;
+            border: none;
+            color: white;
+            cursor: pointer;
+            transition: all 0.2s;      /* Добавлено all вместо transform */
+            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+            position: absolute;
+            left: 10%;
+            bottom: calc(50% - 20%);
+            transform: translateY(-50%);
+            box-sizing: border-box;    /* Важно для точных размеров */
+        }
+
+        #event {
+            width: 140px !important;   /* Принудительное применение */
+            height: 140px !important;  /* Принудительное применение */
+            min-width: 140px;          /* Запрет уменьшения */
+            min-height: 140px;         /* Запрет уменьшения */
+            background-color: #1b2026;
+            border-radius: 12px;
+            border: none;
+            color: white;
+            cursor: pointer;
+            transition: all 0.2s;      /* Добавлено all вместо transform */
+            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+            position: absolute;
+            right: 10%;
+            bottom: calc(50% - 20%);
+            transform: translateY(-50%);
+            box-sizing: border-box;    /* Важно для точных размеров */
+        }
+
+
+
+
         #traffice:hover {
             transform: translateY(-50%) scale(0.95);
         }
@@ -115,6 +155,8 @@
     <div class="central-panel">
         <button id="traffice"></button>
         <button id="baners"></button>
+        <button id="news"></button>
+        <button id="event"></button>
     </div>
     <div class="bottom-panel"></div>
 </body>
