@@ -42,11 +42,7 @@
         }
 
         /* Общие стили для ВСЕХ кнопок */
-        #traffice, #baners, #news, #event, #offers, #exchange {
-            width: 127px;
-            height: 127px;
-            min-width: 127px;
-            min-height: 127px;
+        #traffice, #baners, #news, #event, #offers, #exchange, #top-main {
             background-color: #1b2026;
             border-radius: 12px;
             border: none;
@@ -58,6 +54,23 @@
             box-sizing: border-box;
             outline: none;
             -webkit-tap-highlight-color: transparent;
+        }
+
+        /* Стили для обычных кнопок */
+        #traffice, #baners, #news, #event, #offers, #exchange {
+            width: 127px;
+            height: 127px;
+            min-width: 127px;
+            min-height: 127px;
+        }
+
+        /* Стиль для верхней широкой кнопки */
+        #top-main {
+            width: calc(127px * 2 + 20%); /* Ширина двух кнопок + отступы */
+            height: 90px;
+            left: 10%;
+            top: 20%;
+            transform: translateY(-50%);
         }
 
         /* Позиционирование центральных кнопок */
@@ -98,27 +111,27 @@
 
         /* Анимация для ВСЕХ кнопок */
         #traffice:hover, #baners:hover, #news:hover, #event:hover,
-        #offers:hover, #exchange:hover {
+        #offers:hover, #exchange:hover, #top-main:hover {
             transform: scale(0.95);
         }
 
         #traffice:active, #baners:active, #news:active, #event:active,
-        #offers:active, #exchange:active {
+        #offers:active, #exchange:active, #top-main:active {
             transform: scale(0.9);
         }
 
         /* Особые случаи для кнопок с transform */
         #traffice:hover, #baners:hover,
-        #offers:hover, #exchange:hover {
+        #offers:hover, #exchange:hover, #top-main:hover {
             transform: translateY(-50%) scale(0.95);
         }
 
         #traffice:active, #baners:active,
-        #offers:active, #exchange:active {
+        #offers:active, #exchange:active, #top-main:active {
             transform: translateY(-50%) scale(0.9);
         }
 
-        /* Мобильная версия */
+        /* Мобильная версия (сохранены оригинальные настройки) */
         @media (max-width: 600px) {
             .top-panel {
                 height: 40%;
@@ -140,11 +153,19 @@
                 min-width: 100px;
                 min-height: 100px;
             }
+
+            /* Адаптация новой кнопки */
+            #top-main {
+                width: calc(100px * 2 + 10%);
+                height: 70px;
+                left: 5%;
+            }
         }
     </style>
 </head>
 <body>
     <div class="top-panel">
+        <button id="top-main"></button>
         <button id="offers"></button>
         <button id="exchange"></button>
     </div>
