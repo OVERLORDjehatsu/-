@@ -2,9 +2,16 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Positioned Button App</title>
     <style>
+        :root {
+            --button-size: 127px;
+            --button-size-mobile: 100px;
+            --top-panel-height: 37%;
+            --central-panel-top: calc(var(--top-panel-height) + 1.6%);
+        }
+
         body {
             margin: 0;
             padding: 0;
@@ -20,15 +27,15 @@
             position: absolute;
             top: 0;
             width: 100%;
-            height: 37%;
+            height: var(--top-panel-height);
             background-color: #242e38;
         }
 
         .central-panel {
             position: absolute;
-            top: calc(37% + 1.6%);
+            top: var(--central-panel-top);
             width: 100%;
-            height: calc(100% - 37% - 12% - 3.2%);
+            height: calc(100% - var(--top-panel-height) - 12% - 3.2%);
             background-color: #242e38;
             box-sizing: border-box;
         }
@@ -41,8 +48,8 @@
             background-color: #242e38;
         }
 
-        /* Общие стили для ВСЕХ кнопок */
-        #traffice, #baners, #news, #event, #offers, #exchange, #top-main {
+        /* Общие стили для всех кнопок */
+        .btn {
             background-color: #1b2026;
             border-radius: 12px;
             border: none;
@@ -56,17 +63,17 @@
             -webkit-tap-highlight-color: transparent;
         }
 
-        /* Стили для обычных кнопок */
+        /* Стандартные кнопки */
         #traffice, #baners, #news, #event, #offers, #exchange {
-            width: 127px;
-            height: 127px;
-            min-width: 127px;
-            min-height: 127px;
+            width: var(--button-size);
+            height: var(--button-size);
+            min-width: var(--button-size);
+            min-height: var(--button-size);
         }
 
-        /* Стиль для верхней широкой кнопки */
+        /* Верхняя широкая кнопка */
         #top-main {
-            width: calc(127px * 2 + 35%); /* Ширина двух кнопок + отступы */
+            width: calc(var(--button-size) * 2 + 35%);
             height: 90px;
             left: 15%;
             top: 15%;
@@ -96,7 +103,7 @@
             bottom: 8%;
         }
 
-        /* Позиционирование ВЕРХНИХ кнопок */
+        /* Позиционирование верхних кнопок */
         #offers {
             left: 10%;
             top: 70%;
@@ -109,71 +116,73 @@
             transform: translateY(-50%);
         }
 
-        /* Анимация для ВСЕХ кнопок */
+        /* Анимации */
         #traffice:hover, #baners:hover, #news:hover, #event:hover,
         #offers:hover, #exchange:hover, #top-main:hover {
+            transform: translateY(-50%) scale(0.95);
+        }
+
+        #news:hover, #event:hover {
             transform: scale(0.95);
         }
 
         #traffice:active, #baners:active, #news:active, #event:active,
         #offers:active, #exchange:active, #top-main:active {
-            transform: scale(0.9);
-        }
-
-        /* Особые случаи для кнопок с transform */
-        #traffice:hover, #baners:hover,
-        #offers:hover, #exchange:hover, #top-main:hover {
-            transform: translateY(-50%) scale(0.95);
-        }
-
-        #traffice:active, #baners:active,
-        #offers:active, #exchange:active, #top-main:active {
             transform: translateY(-50%) scale(0.9);
         }
 
-        /* Мобильная версия (сохранены оригинальные настройки) */
+        #news:active, #event:active {
+            transform: scale(0.9);
+        }
+
+        /* Мобильная версия */
         @media (max-width: 600px) {
-            .top-panel {
-                height: 40%;
+            :root {
+                --top-panel-height: 40%;
+                --button-size: var(--button-size-mobile);
             }
 
             .central-panel {
-                top: calc(40% + 1.6%);
-                height: calc(100% - 40% - 15% - 3.2%);
+                top: calc(var(--top-panel-height) + 1.6%);
+                height: calc(100% - var(--top-panel-height) - 15% - 3.2%);
             }
 
             .bottom-panel {
                 height: 15%;
             }
 
-            #traffice, #baners, #news, #event,
-            #offers, #exchange {
-                width: 127px;
-                height: 127px;
-                min-width: 100px;
-                min-height: 100px;
-            }
-
-            /* Адаптация новой кнопки */
             #top-main {
-                width: calc(100px * 2 + 27%);
+                width: calc(var(--button-size-mobile) * 2 + 27%);
                 height: 80px;
                 left: 10%;
+            }
+        }
+
+        /* Для очень маленьких экранов */
+        @media (max-width: 375px) {
+            #top-main {
+                width: 90%;
+                left: 5%;
+            }
+
+            #offers, #exchange {
+                width: calc(var(--button-size-mobile) * 0.9);
+                height: calc(var(--button-size-mobile) * 0.9);
             }
         }
     </style>
 </head>
 <body>
     <div class="top-panel">
-        <button id="top-main"></button>
-        <button id="offers"></button>
-        <button id="exchange"></button>
+        <button id="top-main" class="btn"></button>
+        <button id="offers" class="btn"></button>
+        <button id="exchange" class="btn"></button>
     </div>
     <div class="central-panel">
-        <button id="traffice"></button>
-        <button id="baners"></button>
-        <button id="news"></button>
-        <button id="event"></button>
+        <button id="traffice" class="btn"></button>
+        <button id="baners" class="btn"></button>
+        <button id="news" class="btn"></button>
+        <button id="event" class="btn"></button>
     </div>
     <div class="bottom-panel"></div>
 </body>
