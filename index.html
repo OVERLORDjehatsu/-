@@ -86,11 +86,11 @@
         /* Позиционирование ВЕРХНИХ кнопок */
         #offers {
             left: 10%;
-            top: 30%;
+            top: 40%;
             transform: translateY(-50%);
         }
 
-        #change {
+        #exchange {
             right: 10%;
             top: 50%;
             transform: translateY(-50%);
@@ -98,23 +98,23 @@
 
         /* Анимация для ВСЕХ кнопок */
         #traffice:hover, #baners:hover, #news:hover, #event:hover,
-        #top-left:hover, #top-right:hover {
+        #offers:hover, #exchange:hover {
             transform: scale(0.95);
         }
 
         #traffice:active, #baners:active, #news:active, #event:active,
-        #top-left:active, #top-right:active {
+        #offers:active, #exchange:active {
             transform: scale(0.9);
         }
 
         /* Особые случаи для кнопок с transform */
         #traffice:hover, #baners:hover,
-        #top-left:hover, #top-right:hover {
+        #offers:hover, #exchange:hover {
             transform: translateY(-50%) scale(0.95);
         }
 
         #traffice:active, #baners:active,
-        #top-left:active, #top-right:active {
+        #offers:active, #exchange:active {
             transform: translateY(-50%) scale(0.9);
         }
 
@@ -134,7 +134,7 @@
             }
 
             #traffice, #baners, #news, #event,
-            #top-left, #top-right {
+            #offers, #exchange {
                 width: 127px;
                 height: 127px;
                 min-width: 100px;
