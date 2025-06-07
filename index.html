@@ -41,46 +41,8 @@
             background-color: #242e38;
         }
 
-        /* Стили для верхних кнопок */
-        .top-button {
-            width: 127px;
-            height: 127px;
-            background-color: #1b2026;
-            border-radius: 12px;
-            border: none;
-            color: white;
-            cursor: pointer;
-            position: absolute;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-            transition: all 0.2s;
-            outline: none;
-        }
-
-        /* Позиционирование первой кнопки (слева) */
-        #offers {
-            left: 20px;
-            top: 20%;
-            transform: translateY(-50%);
-        }
-
-        /* Позиционирование второй кнопки (справа) */
-        #exchange {
-            right: 20px;
-            top: 20%;
-            transform: translateY(-50%);
-        }
-
-        /* Анимация как у других кнопок */
-        .top-button:hover {
-            transform: translateY(-50%) scale(0.95);
-        }
-
-        .top-button:active {
-            transform: translateY(-50%) scale(0.9);
-        }
-
-        /* Общие стили для всех кнопок */
-        #traffice, #baners, #news, #event {
+        /* Общие стили для ВСЕХ кнопок */
+        #traffice, #baners, #news, #event, #offers, #exchange {
             width: 127px;
             height: 127px;
             min-width: 127px;
@@ -94,11 +56,11 @@
             box-shadow: 0 4px 8px rgba(0,0,0,0.3);
             position: absolute;
             box-sizing: border-box;
-            outline: none; /* Убираем синюю подсветку */
-            -webkit-tap-highlight-color: transparent; /* Для мобильных */
+            outline: none;
+            -webkit-tap-highlight-color: transparent;
         }
 
-        /* Позиционирование кнопок */
+        /* Позиционирование центральных кнопок */
         #traffice {
             left: 10%;
             top: calc(50% - 23%);
@@ -121,21 +83,38 @@
             bottom: 8%;
         }
 
-        /* Анимация для всех кнопок */
-        #traffice:hover, #baners:hover, #news:hover, #event:hover {
+        /* Позиционирование ВЕРХНИХ кнопок */
+        #top-left {
+            left: 10%;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        #top-right {
+            right: 10%;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        /* Анимация для ВСЕХ кнопок */
+        #traffice:hover, #baners:hover, #news:hover, #event:hover,
+        #top-left:hover, #top-right:hover {
             transform: scale(0.95);
         }
 
-        #traffice:active, #baners:active, #news:active, #event:active {
+        #traffice:active, #baners:active, #news:active, #event:active,
+        #top-left:active, #top-right:active {
             transform: scale(0.9);
         }
 
-        /* Особый случай для кнопок с transform */
-        #traffice:hover, #baners:hover {
+        /* Особые случаи для кнопок с transform */
+        #traffice:hover, #baners:hover,
+        #top-left:hover, #top-right:hover {
             transform: translateY(-50%) scale(0.95);
         }
 
-        #traffice:active, #baners:active {
+        #traffice:active, #baners:active,
+        #top-left:active, #top-right:active {
             transform: translateY(-50%) scale(0.9);
         }
 
@@ -154,40 +133,26 @@
                 height: 15%;
             }
 
-            #traffice, #baners, #news, #event {
-                width: 127px;
-                height: 127px;
+            #traffice, #baners, #news, #event,
+            #top-left, #top-right {
+                width: 100px;
+                height: 100px;
                 min-width: 100px;
                 min-height: 100px;
             }
-
-            .top-button {
-                width: 80px;
-                height: 40px;
-            }
-
-            #top-btn1 {
-                left: 10px;
-            }
-
-            #top-btn2 {
-                right: 10px;
-            }
         }
-
     </style>
 </head>
 <body>
-    <div class="top-panel"></div>
+    <div class="top-panel">
+        <button id="offers"></button>
+        <button id="exchange"></button>
+    </div>
     <div class="central-panel">
         <button id="traffice"></button>
         <button id="baners"></button>
         <button id="news"></button>
         <button id="event"></button>
-    </div>
-    <div class="top-panel">
-        <button id="offers" class="top-button"></button>
-        <button id="exchange" class="top-button"></button>
     </div>
     <div class="bottom-panel"></div>
 </body>
