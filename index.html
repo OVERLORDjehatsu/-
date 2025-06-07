@@ -41,90 +41,63 @@
             background-color: #242e38;
         }
 
-        #traffice {
-            width: 127px !important;   /* Принудительное применение */
-            height: 127px !important;  /* Принудительное применение */
-            min-width: 127px;          /* Запрет уменьшения */
-            min-height: 127px;         /* Запрет уменьшения */
+        /* Общие стили для всех кнопок */
+        #traffice, #baners, #news, #event {
+            width: 127px;
+            height: 127px;
+            min-width: 127px;
+            min-height: 127px;
             background-color: #1b2026;
             border-radius: 12px;
             border: none;
             color: white;
             cursor: pointer;
-            transition: all 0.2s;      /* Добавлено all вместо transform */
+            transition: all 0.2s;
             box-shadow: 0 4px 8px rgba(0,0,0,0.3);
             position: absolute;
+            box-sizing: border-box;
+            outline: none; /* Убираем синюю подсветку */
+            -webkit-tap-highlight-color: transparent; /* Для мобильных */
+        }
+
+        /* Позиционирование кнопок */
+        #traffice {
             left: 10%;
             top: calc(50% - 23%);
             transform: translateY(-50%);
-            box-sizing: border-box;    /* Важно для точных размеров */
         }
 
         #baners {
-            width: 127px !important;   /* Принудительное применение */
-            height: 127px !important;  /* Принудительное применение */
-            min-width: 127px;          /* Запрет уменьшения */
-            min-height: 127px;         /* Запрет уменьшения */
-            background-color: #1b2026;
-            border-radius: 12px;
-            border: none;
-            color: white;
-            cursor: pointer;
-            transition: all 0.2s;      /* Добавлено all вместо transform */
-            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
-            position: absolute;
             right: 10%;
             top: calc(50% - 23%);
             transform: translateY(-50%);
-            box-sizing: border-box;    /* Важно для точных размеров */
         }
 
         #news {
-            width: 127px !important;   /* Принудительное применение */
-            height: 127px !important;  /* Принудительное применение */
-            min-width: 127px;          /* Запрет уменьшения */
-            min-height: 127px;         /* Запрет уменьшения */
-            background-color: #1b2026;
-            border-radius: 12px;
-            border: none;
-            color: white;
-            cursor: pointer;
-            transition: all 0.2s;      /* Добавлено all вместо transform */
-            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
-            position: absolute;
             left: 10%;
             bottom: 8%;
-            transform: none;
-            box-sizing: border-box;    /* Важно для точных размеров */
         }
 
         #event {
-            width: 127px !important;   /* Принудительное применение */
-            height: 127px !important;  /* Принудительное применение */
-            min-width: 127px;          /* Запрет уменьшения */
-            min-height: 127px;         /* Запрет уменьшения */
-            background-color: #1b2026;
-            border-radius: 12px;
-            border: none;
-            color: white;
-            cursor: pointer;
-            transition: all 0.2s;      /* Добавлено all вместо transform */
-            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
-            position: absolute;
             right: 10%;
             bottom: 8%;
-            transform: none;
-            box-sizing: border-box;    /* Важно для точных размеров */
         }
 
+        /* Анимация для всех кнопок */
+        #traffice:hover, #baners:hover, #news:hover, #event:hover {
+            transform: scale(0.95);
+        }
 
+        #traffice:active, #baners:active, #news:active, #event:active {
+            transform: scale(0.9);
+        }
 
-
-        #traffice:hover {
+        /* Особый случай для кнопок с transform */
+        #traffice:hover, #baners:hover {
             transform: translateY(-50%) scale(0.95);
         }
 
-        #traffice:active {
+        #traffice:active, #baners:active {
             transform: translateY(-50%) scale(0.9);
         }
 
@@ -143,9 +116,11 @@
                 height: 15%;
             }
 
-            #traffice {
+            #traffice, #baners, #news, #event {
                 width: 100px;
                 height: 100px;
+                min-width: 100px;
+                min-height: 100px;
             }
         }
     </style>
