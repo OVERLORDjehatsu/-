@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Адаптивный интерфейс</title>
+  <title>Positioned Button App</title>
   <style>
     * {
       box-sizing: border-box;
@@ -14,33 +14,32 @@
       padding: 0;
       background-color: #1b2026;
       font-family: Arial, sans-serif;
-      display: flex;
-      flex-direction: column;
       height: 100vh;
+      position: relative;
     }
 
     .top-panel,
     .central-panel,
     .bottom-panel {
+      position: absolute;
+      left: 0;
+      width: 100%;
       background-color: #242e38;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      align-items: center;
-      gap: 4vw;
-      padding: 1vh 2vw;
     }
 
     .top-panel {
-      flex: 0 0 35%;
+      top: 0;
+      height: 37%;
     }
 
     .central-panel {
-      flex: 1;
+      top: 38.6%;
+      height: calc(100% - 37% - 12% - 3.2%);
     }
 
     .bottom-panel {
-      flex: 0 0 12%;
+      bottom: 0;
+      height: 12%;
     }
 
     button {
@@ -49,26 +48,59 @@
       border: none;
       color: white;
       cursor: pointer;
-      transition: transform 0.2s;
+      transition: all 0.2s;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-      padding: 1em;
+      position: absolute;
+      width: 127px;
+      height: 127px;
       font-size: 1em;
-      width: 24vw;
-      height: 24vw;
-      max-width: 130px;
-      max-height: 130px;
-      min-width: 90px;
-      min-height: 90px;
     }
 
     #top-main {
-      width: 60vw;
-      height: 9vh;
-      max-width: 400px;
-      min-height: 60px;
-      font-size: 1.1em;
+      width: calc(127px * 2 + 70px);
+      height: 90px;
+      top: 15%;
+      left: 50%;
+      transform: translate(-50%, -50%);
     }
 
+    /* Верхние кнопки */
+    #offers {
+      left: 10%;
+      top: 70%;
+      transform: translateY(-50%);
+    }
+
+    #exchange {
+      right: 10%;
+      top: 70%;
+      transform: translateY(-50%);
+    }
+
+    /* Центральные кнопки */
+    #traffice {
+      left: 10%;
+      top: 30%;
+      transform: translateY(-50%);
+    }
+
+    #baners {
+      right: 10%;
+      top: 30%;
+      transform: translateY(-50%);
+    }
+
+    #news {
+      left: 10%;
+      bottom: 8%;
+    }
+
+    #event {
+      right: 10%;
+      bottom: 8%;
+    }
+
+    /* Hover/active эффекты */
     button:hover {
       transform: scale(0.95);
     }
@@ -77,15 +109,28 @@
       transform: scale(0.9);
     }
 
+    /* Особые случаи с transform */
+    #offers:hover, #exchange:hover,
+    #traffice:hover, #baners:hover, #top-main:hover {
+      transform: translateY(-50%) scale(0.95);
+    }
+
+    #offers:active, #exchange:active,
+    #traffice:active, #baners:active, #top-main:active {
+      transform: translateY(-50%) scale(0.9);
+    }
+
+    /* Адаптация для экранов <600px */
     @media (max-width: 600px) {
       button {
-        width: 28vw;
-        height: 28vw;
+        width: 100px;
+        height: 100px;
+        font-size: 0.9em;
       }
 
       #top-main {
-        width: 80vw;
-        height: 10vh;
+        width: calc(100px * 2 + 50px);
+        height: 80px;
       }
     }
   </style>
@@ -102,8 +147,6 @@
     <button id="news">Новости</button>
     <button id="event">События</button>
   </div>
-  <div class="bottom-panel">
-    <!-- Здесь можно разместить логотип, копирайт или другую информацию -->
-  </div>
+  <div class="bottom-panel"></div>
 </body>
 </html>
