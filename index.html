@@ -41,6 +41,44 @@
             background-color: #242e38;
         }
 
+        /* Стили для верхних кнопок */
+        .top-button {
+            width: 127px;
+            height: 127px;
+            background-color: #1b2026;
+            border-radius: 12px;
+            border: none;
+            color: white;
+            cursor: pointer;
+            position: absolute;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            transition: all 0.2s;
+            outline: none;
+        }
+
+        /* Позиционирование первой кнопки (слева) */
+        #offers {
+            left: 20px;
+            top: 20%;
+            transform: translateY(-50%);
+        }
+
+        /* Позиционирование второй кнопки (справа) */
+        #exchange {
+            right: 20px;
+            top: 20%;
+            transform: translateY(-50%);
+        }
+
+        /* Анимация как у других кнопок */
+        .top-button:hover {
+            transform: translateY(-50%) scale(0.95);
+        }
+
+        .top-button:active {
+            transform: translateY(-50%) scale(0.9);
+        }
+
         /* Общие стили для всех кнопок */
         #traffice, #baners, #news, #event {
             width: 127px;
@@ -122,7 +160,21 @@
                 min-width: 100px;
                 min-height: 100px;
             }
+
+            .top-button {
+                width: 80px;
+                height: 40px;
+            }
+
+            #top-btn1 {
+                left: 10px;
+            }
+
+            #top-btn2 {
+                right: 10px;
+            }
         }
+
     </style>
 </head>
 <body>
@@ -132,6 +184,10 @@
         <button id="baners"></button>
         <button id="news"></button>
         <button id="event"></button>
+    </div>
+    <div class="top-panel">
+        <button id="offers" class="top-button"></button>
+        <button id="exchange" class="top-button"></button>
     </div>
     <div class="bottom-panel"></div>
 </body>
