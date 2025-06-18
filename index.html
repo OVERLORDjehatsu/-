@@ -93,31 +93,42 @@
     #news {
       left: 10%;
       bottom: 8%;
+      transform: none;
     }
 
     #event {
       right: 10%;
       bottom: 8%;
+      transform: none;
     }
 
-    /* Hover/active эффекты */
-    button:hover {
-      transform: scale(0.95);
+    /* FIXED: Анимация для #top-main */
+    #top-main:hover {
+      transform: translate(-50%, -50%) scale(0.95);
     }
 
-    button:active {
-      transform: scale(0.9);
+    #top-main:active {
+      transform: translate(-50%, -50%) scale(0.9);
     }
 
-    /* Особые случаи с transform */
+    /* Анимация для кнопок с вертикальным позиционированием */
     #offers:hover, #exchange:hover,
-    #traffice:hover, #baners:hover, #top-main:hover {
+    #traffice:hover, #baners:hover {
       transform: translateY(-50%) scale(0.95);
     }
 
     #offers:active, #exchange:active,
-    #traffice:active, #baners:active, #top-main:active {
+    #traffice:active, #baners:active {
       transform: translateY(-50%) scale(0.9);
+    }
+
+    /* Анимация для нижних кнопок */
+    #news:hover, #event:hover {
+      transform: scale(0.95);
+    }
+
+    #news:active, #event:active {
+      transform: scale(0.9);
     }
 
     /* Адаптация для экранов <600px */
@@ -129,7 +140,7 @@
       }
 
       #top-main {
-        width: calc(127px * 2 + 64px);
+        width: calc(127px * 2 + 60px);
         height: 80px;
       }
     }
