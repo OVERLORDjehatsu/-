@@ -47,6 +47,8 @@
       --text-x: 50%; /* Позиция по горизонтали (0% - левый край, 100% - правый) */
       --text-y: 50%; /* Позиция по вертикали (0% - верх, 100% - низ) */
       --text-size: 16px; /* Размер текста */
+      --text-width: auto; /* Ширина текстового блока */
+      --text-lines: 1; /* Количество строк */
 
       background-color: #212A33;
       border-radius: 12px;
@@ -72,7 +74,14 @@
       top: var(--text-y);
       transform: translate(-50%, -50%);
       font-size: var(--text-size);
-      white-space: nowrap;
+      width: var(--text-width);
+      text-align: center;
+      white-space: pre-wrap;
+      word-break: break-word;
+      display: -webkit-box;
+      -webkit-line-clamp: var(--text-lines);
+      -webkit-box-orient: vertical;
+      overflow: hidden;
     }
 
     /* Специфичные стили для кнопок (расположение на странице) */
@@ -102,12 +111,16 @@
       left: 10%;
       top: 30%;
       transform: translateY(-50%);
+      --text-width: 90%;
+      --text-lines: 2;
     }
 
     #baners {
       right: 10%;
       top: 30%;
       transform: translateY(-50%);
+      --text-width: 90%;
+      --text-lines: 2;
     }
 
     #news {
@@ -165,6 +178,11 @@
       #top-main, #bottom-main {
         width: calc(125px * 2 + 60px);
         height: 80px;
+      }
+
+      #traffice, #baners {
+        --text-width: 85%;
+        --text-size: 14px;
       }
     }
   </style>
