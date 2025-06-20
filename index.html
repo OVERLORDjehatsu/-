@@ -44,14 +44,6 @@
     }
 
     button {
-      --btn-width: 127px;
-      --btn-height: 127px;
-      --btn-top: auto;
-      --btn-right: auto;
-      --btn-bottom: auto;
-      --btn-left: auto;
-      --btn-transform: none;
-
       background-color: #212A33;
       border-radius: 12px;
       border: none;
@@ -59,107 +51,122 @@
       cursor: pointer;
       transition: all 0.2s;
       position: absolute;
-      width: var(--btn-width);
-      height: var(--btn-height);
+      width: 127px;
+      height: 127px;
       font-size: 1em;
       font-family: 'Open Sans', sans-serif;
       font-weight: 600;
-
-      top: var(--btn-top);
-      right: var(--btn-right);
-      bottom: var(--btn-bottom);
-      left: var(--btn-left);
-      transform: var(--btn-transform);
+      display: flex;
     }
 
     /* Классы для позиционирования текста внутри кнопок */
-    .text-top {
-      display: flex;
+    .text-pos-top {
       align-items: flex-start;
       justify-content: center;
       padding-top: 15px;
     }
 
-    .text-center {
-      display: flex;
+    .text-pos-center {
       align-items: center;
       justify-content: center;
     }
 
-    .text-bottom {
-      display: flex;
+    .text-pos-bottom {
       align-items: flex-end;
       justify-content: center;
       padding-bottom: 15px;
     }
 
-    .text-left {
-      display: flex;
+    .text-pos-left {
       align-items: center;
       justify-content: flex-start;
       padding-left: 15px;
     }
 
-    .text-right {
-      display: flex;
+    .text-pos-right {
       align-items: center;
       justify-content: flex-end;
       padding-right: 15px;
     }
 
+    .text-pos-top-left {
+      align-items: flex-start;
+      justify-content: flex-start;
+      padding: 15px 0 0 15px;
+    }
+
+    .text-pos-top-right {
+      align-items: flex-start;
+      justify-content: flex-end;
+      padding: 15px 15px 0 0;
+    }
+
+    .text-pos-bottom-left {
+      align-items: flex-end;
+      justify-content: flex-start;
+      padding: 0 0 15px 15px;
+    }
+
+    .text-pos-bottom-right {
+      align-items: flex-end;
+      justify-content: flex-end;
+      padding: 0 15px 15px 0;
+    }
+
+    /* Специфичные стили для кнопок (расположение на странице) */
     #top-main {
-      --btn-width: calc(127px * 2 + 70px);
-      --btn-height: 90px;
-      --btn-top: 5%;
-      --btn-left: 5%;
-      --btn-transform: translate(-50%, -50%);
+      width: calc(127px * 2 + 70px);
+      height: 90px;
+      top: 30%;
+      left: 50%;
+      transform: translate(-50%, -50%);
     }
 
     /* Верхние кнопки */
     #offers {
-      --btn-left: 10%;
-      --btn-top: 65%;
-      --btn-transform: translateY(-50%);
+      left: 10%;
+      top: 73%;
+      transform: translateY(-50%);
     }
 
     #exchange {
-      --btn-right: 10%;
-      --btn-top: 65%;
-      --btn-transform: translateY(-50%);
+      right: 10%;
+      top: 73%;
+      transform: translateY(-50%);
     }
 
     /* Центральные кнопки */
     #traffice {
-      --btn-left: 10%;
-      --btn-top: 25%;
-      --btn-transform: translateY(-50%);
+      left: 10%;
+      top: 30%;
+      transform: translateY(-50%);
     }
 
     #baners {
-      --btn-right: 10%;
-      --btn-top: 25%;
-      --btn-transform: translateY(-50%);
+      right: 10%;
+      top: 30%;
+      transform: translateY(-50%);
     }
 
     #news {
-      --btn-left: 10%;
-      --btn-bottom: 15%;
+      left: 10%;
+      bottom: 12%;
     }
 
     #event {
-      --btn-right: 10%;
-      --btn-bottom: 12%;
+      right: 10%;
+      bottom: 12%;
     }
 
     #bottom-main {
-      --btn-width: calc(127px * 2 + 70px);
-      --btn-height: 90px;
-      --btn-top: 55%;
-      --btn-left: 50%;
-      --btn-transform: translate(-50%, -50%);
+      width: calc(127px * 2 + 70px);
+      height: 90px;
+      top: 55%;
+      left: 50%;
+      transform: translate(-50%, -50%);
     }
 
-    /* Анимация для #top-main */
+    /* Анимации */
     #top-main:hover {
       transform: translate(-50%, -50%) scale(0.95);
     }
@@ -168,7 +175,6 @@
       transform: translate(-50%, -50%) scale(0.9);
     }
 
-    /* Анимация для #bottom-main */
     #bottom-main:hover {
       transform: translate(-50%, -50%) scale(0.95);
     }
@@ -177,7 +183,6 @@
       transform: translate(-50%, -50%) scale(0.9);
     }
 
-    /* Анимация для кнопок с вертикальным позиционированием */
     #offers:hover, #exchange:hover,
     #traffice:hover, #baners:hover {
       transform: translateY(-50%) scale(0.95);
@@ -188,7 +193,6 @@
       transform: translateY(-50%) scale(0.9);
     }
 
-    /* Анимация для нижних кнопок */
     #news:hover, #event:hover {
       transform: scale(0.95);
     }
@@ -200,37 +204,37 @@
     /* Адаптация для экранов <600px */
     @media (max-width: 600px) {
       button {
-        --btn-width: 127px;
-        --btn-height: 127px;
+        width: 127px;
+        height: 127px;
         font-size: 0.9em;
       }
 
       #top-main {
-        --btn-width: calc(125px * 2 + 60px);
-        --btn-height: 80px;
+        width: calc(125px * 2 + 60px);
+        height: 80px;
       }
 
       #bottom-main {
-        --btn-width: calc(125px * 2 + 60px);
-        --btn-height: 80px;
+        width: calc(125px * 2 + 60px);
+        height: 80px;
       }
     }
   </style>
 </head>
 <body>
   <div class="top-panel">
-    <button id="top-main" class="text-center">ID</button>
-    <button id="offers" class="text-center">ОФФЕРЫ</button>
-    <button id="exchange" class="text-center">БИРЖА</button>
+    <button id="top-main" class="text-pos-center">ID</button>
+    <button id="offers" class="text-pos-top">Офферы</button>
+    <button id="exchange" class="text-pos-bottom">Обмен</button>
   </div>
   <div class="central-panel">
-    <button id="traffice" class="text-center">КУПИТЬ ТРАФФИК</button>
-    <button id="baners" class="text-center">КУПИТЬ РЕКЛАМУ</button>
-    <button id="news" class="text-center">НОВОСТИ</button>
-    <button id="event" class="text-center">СОБЫТИЯ</button>
+    <button id="traffice" class="text-pos-left">Трафик</button>
+    <button id="baners" class="text-pos-right">Баннеры</button>
+    <button id="news" class="text-pos-top-left">Новости</button>
+    <button id="event" class="text-pos-bottom-right">События</button>
   </div>
   <div class="bottom-panel">
-    <button id="bottom-main" class="text-center">СПИСОК АКЦИЙ</button>
+    <button id="bottom-main" class="text-pos-center">Акции</button>
   </div>
 </body>
 </html>
