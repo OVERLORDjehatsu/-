@@ -64,6 +64,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
+      overflow: hidden; /* Чтобы прямоугольник не выходил за границы кнопки */
     }
 
     /* Позиционирование текста с помощью псевдоэлемента */
@@ -82,6 +83,15 @@
       -webkit-line-clamp: var(--text-lines);
       -webkit-box-orient: vertical;
       overflow: hidden;
+      z-index: 2; /* Чтобы текст был поверх прямоугольника */
+    }
+
+    /* Стили для прямоугольника */
+    .highlight-rect {
+      position: absolute;
+      background-color: #2989CA;
+      border-radius: 12px; /* Такие же скругленные углы, как у кнопки */
+      z-index: 1; /* Под текстом */
     }
 
     /* Специфичные стили для кнопок (расположение на странице) */
@@ -99,6 +109,9 @@
       top: 73%;
       transform: translateY(-50%);
       --text-width: 100%;
+      --rect-width: 100%; /* Ширина прямоугольника */
+      --rect-height: 20px; /* Высота прямоугольника */
+      --rect-y: 70%; /* Позиция по вертикали */
     }
 
     #exchange {
@@ -106,6 +119,9 @@
       top: 73%;
       transform: translateY(-50%);
       --text-width: 100%;
+      --rect-width: 100%;
+      --rect-height: 20px;
+      --rect-y: 70%;
     }
 
     /* Центральные кнопки */
@@ -188,14 +204,33 @@
         --text-width: 85%;
         --text-size: 14px;
       }
+
+      #offers, #exchange {
+        --rect-height: 15px;
+        --rect-y: 75%;
+      }
     }
   </style>
 </head>
 <body>
   <div class="top-panel">
     <button id="top-main" style="--text-x: 5%; --text-y: 15%; --text-size: 16px;" data-text="ID"></button>
-    <button id="offers" style="--text-x: 50%; --text-y: 30%; --text-size: 16px;" data-text="ОФФЕРЫ"></button>
-    <button id="exchange" style="--text-x: 50%; --text-y: 30%; --text-size: 16px;" data-text="БИРЖА"></button>
+    <button id="offers" style="--text-x: 50%; --text-y: 30%; --text-size: 16px;" data-text="ОФФЕРЫ">
+      <div class="highlight-rect" style="
+        width: var(--rect-width);
+        height: var(--rect-height);
+        bottom: calc(100% - var(--rect-y));
+        left: 0;
+      "></div>
+    </button>
+    <button id="exchange" style="--text-x: 50%; --text-y: 30%; --text-size: 16px;" data-text="БИРЖА">
+      <div class="highlight-rect" style="
+        width: var(--rect-width);
+        height: var(--rect-height);
+        bottom: calc(100% - var(--rect-y));
+        left: 0;
+      "></div>
+    </button>
   </div>
   <div class="central-panel">
     <button id="traffice" style="--text-x: 50%; --text-y: 40%; --text-size: 16px;" data-text="КУПИТЬ ТРАФФИК"></button>
