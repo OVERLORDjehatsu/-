@@ -64,10 +64,9 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      overflow: hidden; /* Чтобы прямоугольник не выходил за границы кнопки */
+      overflow: hidden;
     }
 
-    /* Позиционирование текста с помощью псевдоэлемента */
     button::before {
       content: attr(data-text);
       position: absolute;
@@ -83,18 +82,22 @@
       -webkit-line-clamp: var(--text-lines);
       -webkit-box-orient: vertical;
       overflow: hidden;
-      z-index: 2; /* Чтобы текст был поверх прямоугольника */
+      z-index: 2;
     }
 
-    /* Стили для прямоугольника */
+    /* Измененные стили для прямоугольника */
     .highlight-rect {
       position: absolute;
       background-color: #2989CA;
-      border-radius: 12px; /* Такие же скругленные углы, как у кнопки */
-      z-index: 1; /* Под текстом */
+      border-radius: 12px;
+      z-index: 1;
+      width: var(--rect-width, 100%);
+      height: var(--rect-height, 20px);
+      bottom: calc(100% - var(--rect-y, 70%));
+      left: 0;
     }
 
-    /* Специфичные стили для кнопок (расположение на странице) */
+    /* Остальные стили остаются без изменений */
     #top-main {
       width: calc(127px * 2 + 70px);
       height: 90px;
@@ -103,15 +106,14 @@
       transform: translate(-50%, -50%);
     }
 
-    /* Верхние кнопки */
     #offers {
       left: 10%;
       top: 73%;
       transform: translateY(-50%);
       --text-width: 100%;
-      --rect-width: 100%; /* Ширина прямоугольника */
-      --rect-height: 40px; /* Высота прямоугольника */
-      --rect-y: 70%; /* Позиция по вертикали */
+      --rect-width: 100%;
+      --rect-height: 40px;
+      --rect-y: 70%;
     }
 
     #exchange {
@@ -124,7 +126,6 @@
       --rect-y: 70%;
     }
 
-    /* Центральные кнопки */
     #traffice {
       left: 10%;
       top: 30%;
@@ -161,7 +162,6 @@
       transform: translate(-50%, -50%);
     }
 
-    /* Анимации */
     button:hover {
       transform: scale(0.95);
     }
@@ -188,7 +188,6 @@
       transform: translateY(-50%) scale(0.9);
     }
 
-    /* Адаптация для экранов <600px */
     @media (max-width: 600px) {
       button {
         width: 127px;
@@ -206,7 +205,7 @@
       }
 
       #offers, #exchange {
-        --rect-height: 15px;
+        --rect-height: 30px;
         --rect-y: 75%;
       }
     }
@@ -216,20 +215,10 @@
   <div class="top-panel">
     <button id="top-main" style="--text-x: 5%; --text-y: 15%; --text-size: 16px;" data-text="ID"></button>
     <button id="offers" style="--text-x: 50%; --text-y: 30%; --text-size: 16px;" data-text="ОФФЕРЫ">
-      <div class="highlight-rect" style="
-        width: var(--rect-width);
-        height: var(--rect-height, 40px);
-        bottom: calc(100% - var(--rect-y));
-        left: 0;
-      "></div>
+      <div class="highlight-rect"></div>
     </button>
     <button id="exchange" style="--text-x: 50%; --text-y: 30%; --text-size: 16px;" data-text="БИРЖА">
-      <div class="highlight-rect" style="
-        width: var(--rect-width);
-        height: var(--rect-height);
-        bottom: calc(100% - var(--rect-y));
-        left: 0;
-      "></div>
+      <div class="highlight-rect"></div>
     </button>
   </div>
   <div class="central-panel">
