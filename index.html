@@ -44,9 +44,9 @@
     }
 
     button {
-      --text-size: 1em;
-      --text-pos-y: 50%; /* Вертикальное положение (50% - центр) */
-      --text-pos-x: 50%; /* Горизонтальное положение (50% - центр) */
+      --text-x: 50%; /* Позиция по горизонтали (0% - левый край, 100% - правый) */
+      --text-y: 50%; /* Позиция по вертикали (0% - верх, 100% - низ) */
+      --text-size: 16px; /* Размер текста */
 
       background-color: #212A33;
       border-radius: 12px;
@@ -57,7 +57,6 @@
       position: absolute;
       width: 127px;
       height: 127px;
-      font-size: var(--text-size);
       font-family: 'Open Sans', sans-serif;
       font-weight: 600;
       display: flex;
@@ -65,51 +64,18 @@
       justify-content: center;
     }
 
-    /* Псевдоэлемент для точного позиционирования текста */
+    /* Позиционирование текста с помощью псевдоэлемента */
     button::before {
       content: attr(data-text);
       position: absolute;
-      left: var(--text-pos-x);
-      top: var(--text-pos-y);
+      left: var(--text-x);
+      top: var(--text-y);
       transform: translate(-50%, -50%);
+      font-size: var(--text-size);
       white-space: nowrap;
     }
 
-    /* Классы для точного позиционирования текста */
-    .text-pos-custom {
-      display: block;
-    }
-
-    /* Примеры позиций (можно добавлять свои) */
-    .text-pos-above-center {
-      --text-pos-y: 40%; /* Чуть выше центра */
-    }
-
-    .text-pos-below-center {
-      --text-pos-y: 60%; /* Чуть ниже центра */
-    }
-
-    .text-pos-high-left {
-      --text-pos-y: 30%;
-      --text-pos-x: 25%;
-    }
-
-    /* Классы для размера текста */
-    .text-xs { --text-size: 0.75em; }
-    .text-sm { --text-size: 0.875em; }
-    .text-md { --text-size: 1em; }
-    .text-lg { --text-size: 1.25em; }
-    .text-xl { --text-size: 1.5em; }
-    .text-xxl { --text-size: 2em; }
-
-    .text-10 { --text-size: 10px; }
-    .text-12 { --text-size: 12px; }
-    .text-14 { --text-size: 14px; }
-    .text-16 { --text-size: 16px; }
-    .text-18 { --text-size: 18px; }
-    .text-20 { --text-size: 20px; }
-
-    /* Специфичные стили для кнопок */
+    /* Специфичные стили для кнопок (расположение на странице) */
     #top-main {
       width: calc(127px * 2 + 70px);
       height: 90px;
@@ -118,6 +84,7 @@
       transform: translate(-50%, -50%);
     }
 
+    /* Верхние кнопки */
     #offers {
       left: 10%;
       top: 73%;
@@ -130,6 +97,7 @@
       transform: translateY(-50%);
     }
 
+    /* Центральные кнопки */
     #traffice {
       left: 10%;
       top: 30%;
@@ -187,7 +155,7 @@
       transform: translateY(-50%) scale(0.9);
     }
 
-    /* Адаптация для мобильных */
+    /* Адаптация для экранов <600px */
     @media (max-width: 600px) {
       button {
         width: 127px;
@@ -203,18 +171,18 @@
 </head>
 <body>
   <div class="top-panel">
-    <button id="top-main" class="text-lg" data-text="Главная"></button>
-    <button id="offers" class="text-pos-above-center text-sm" data-text="Офферы"></button>
-    <button id="exchange" class="text-pos-below-center text-md" data-text="Обмен"></button>
+    <button id="top-main" style="--text-x: 15%; --text-y: 15%; --text-size: 18px;" data-text="ID"></button>
+    <button id="offers" style="--text-x: 50%; --text-y: 30%; --text-size: 16px;" data-text="Офферы"></button>
+    <button id="exchange" style="--text-x: 50%; --text-y: 70%; --text-size: 16px;" data-text="Обмен"></button>
   </div>
   <div class="central-panel">
-    <button id="traffice" class="text-pos-high-left text-16" data-text="Трафик"></button>
-    <button id="baners" class="text-pos-custom" style="--text-pos-y: 45%; --text-pos-x: 75%;" data-text="Баннеры"></button>
-    <button id="news" class="text-pos-custom" style="--text-pos-y: 35%; --text-pos-x: 25%;" data-text="Новости"></button>
-    <button id="event" class="text-pos-custom" style="--text-pos-y: 65%; --text-pos-x: 75%;" data-text="События"></button>
+    <button id="traffice" style="--text-x: 25%; --text-y: 50%; --text-size: 16px;" data-text="Трафик"></button>
+    <button id="baners" style="--text-x: 75%; --text-y: 50%; --text-size: 16px;" data-text="Баннеры"></button>
+    <button id="news" style="--text-x: 25%; --text-y: 30%; --text-size: 14px;" data-text="Новости"></button>
+    <button id="event" style="--text-x: 75%; --text-y: 70%; --text-size: 14px;" data-text="События"></button>
   </div>
   <div class="bottom-panel">
-    <button id="bottom-main" class="text-xxl" data-text="Акции"></button>
+    <button id="bottom-main" style="--text-x: 50%; --text-y: 50%; --text-size: 20px;" data-text="Акции"></button>
   </div>
 </body>
 </html>
