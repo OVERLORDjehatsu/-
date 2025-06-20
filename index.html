@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Positioned Button App</title>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
   <style>
     * {
       box-sizing: border-box;
@@ -13,7 +14,7 @@
       margin: 0;
       padding: 0;
       background-color: #1b2026;
-      font-family: Arial, sans-serif;
+      font-family: 'Open Sans', Arial, sans-serif;
       height: 100vh;
       position: relative;
     }
@@ -43,74 +44,122 @@
     }
 
     button {
+      --btn-width: 127px;
+      --btn-height: 127px;
+      --btn-top: auto;
+      --btn-right: auto;
+      --btn-bottom: auto;
+      --btn-left: auto;
+      --btn-transform: none;
+
       background-color: #212A33;
       border-radius: 12px;
       border: none;
       color: white;
       cursor: pointer;
       transition: all 0.2s;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
       position: absolute;
-      width: 127px;
-      height: 127px;
+      width: var(--btn-width);
+      height: var(--btn-height);
       font-size: 1em;
+      font-family: 'Open Sans', sans-serif;
+      font-weight: 600;
+
+      top: var(--btn-top);
+      right: var(--btn-right);
+      bottom: var(--btn-bottom);
+      left: var(--btn-left);
+      transform: var(--btn-transform);
+    }
+
+    /* Классы для позиционирования текста внутри кнопок */
+    .text-top {
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      padding-top: 15px;
+    }
+
+    .text-center {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .text-bottom {
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      padding-bottom: 15px;
+    }
+
+    .text-left {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      padding-left: 15px;
+    }
+
+    .text-right {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      padding-right: 15px;
     }
 
     #top-main {
-      width: calc(127px * 2 + 70px);
-      height: 90px;
-      top: 30%;
-      left: 50%;
-      transform: translate(-50%, -50%);
+      --btn-width: calc(127px * 2 + 70px);
+      --btn-height: 90px;
+      --btn-top: 30%;
+      --btn-left: 50%;
+      --btn-transform: translate(-50%, -50%);
     }
 
     /* Верхние кнопки */
     #offers {
-      left: 10%;
-      top: 73%;
-      transform: translateY(-50%);
+      --btn-left: 10%;
+      --btn-top: 73%;
+      --btn-transform: translateY(-50%);
     }
 
     #exchange {
-      right: 10%;
-      top: 73%;
-      transform: translateY(-50%);
+      --btn-right: 10%;
+      --btn-top: 73%;
+      --btn-transform: translateY(-50%);
     }
 
     /* Центральные кнопки */
     #traffice {
-      left: 10%;
-      top: 30%;
-      transform: translateY(-50%);
+      --btn-left: 10%;
+      --btn-top: 30%;
+      --btn-transform: translateY(-50%);
     }
 
     #baners {
-      right: 10%;
-      top: 30%;
-      transform: translateY(-50%);
+      --btn-right: 10%;
+      --btn-top: 30%;
+      --btn-transform: translateY(-50%);
     }
 
     #news {
-      left: 10%;
-      bottom: 12%;
-      transform: none;
+      --btn-left: 10%;
+      --btn-bottom: 12%;
     }
 
     #event {
-      right: 10%;
-      bottom: 12%;
-      transform: none;
+      --btn-right: 10%;
+      --btn-bottom: 12%;
     }
 
-        #bottom-main {
-      width: calc(127px * 2 + 70px);
-      height: 90px;
-      top: 55%;
-      left: 50%;
-      transform: translate(-50%, -50%);
+    #bottom-main {
+      --btn-width: calc(127px * 2 + 70px);
+      --btn-height: 90px;
+      --btn-top: 55%;
+      --btn-left: 50%;
+      --btn-transform: translate(-50%, -50%);
     }
 
-    /* FIXED: Анимация для #top-main */
+    /* Анимация для #top-main */
     #top-main:hover {
       transform: translate(-50%, -50%) scale(0.95);
     }
@@ -119,8 +168,7 @@
       transform: translate(-50%, -50%) scale(0.9);
     }
 
-
-    /* FIXED: Анимация для #bottom-main */
+    /* Анимация для #bottom-main */
     #bottom-main:hover {
       transform: translate(-50%, -50%) scale(0.95);
     }
@@ -128,7 +176,6 @@
     #bottom-main:active {
       transform: translate(-50%, -50%) scale(0.9);
     }
-
 
     /* Анимация для кнопок с вертикальным позиционированием */
     #offers:hover, #exchange:hover,
@@ -153,37 +200,37 @@
     /* Адаптация для экранов <600px */
     @media (max-width: 600px) {
       button {
-        width: 127px;
-        height: 127px;
+        --btn-width: 127px;
+        --btn-height: 127px;
         font-size: 0.9em;
       }
 
       #top-main {
-        width: calc(125px * 2 + 60px);
-        height: 80px;
+        --btn-width: calc(125px * 2 + 60px);
+        --btn-height: 80px;
       }
 
       #bottom-main {
-        width: calc(125px * 2 + 60px);
-        height: 80px;
+        --btn-width: calc(125px * 2 + 60px);
+        --btn-height: 80px;
       }
     }
   </style>
 </head>
 <body>
   <div class="top-panel">
-    <button id="top-main">Главная</button>
-    <button id="offers">Офферы</button>
-    <button id="exchange">Обмен</button>
+    <button id="top-main" class="text-center">Главная</button>
+    <button id="offers" class="text-center">Офферы</button>
+    <button id="exchange" class="text-center">Обмен</button>
   </div>
   <div class="central-panel">
-    <button id="traffice">Трафик</button>
-    <button id="baners">Баннеры</button>
-    <button id="news">Новости</button>
-    <button id="event">События</button>
+    <button id="traffice" class="text-center">Трафик</button>
+    <button id="baners" class="text-center">Баннеры</button>
+    <button id="news" class="text-center">Новости</button>
+    <button id="event" class="text-center">События</button>
   </div>
   <div class="bottom-panel">
-    <button id="bottom-main">Акции</button>z
+    <button id="bottom-main" class="text-center">Акции</button>
   </div>
 </body>
 </html>
