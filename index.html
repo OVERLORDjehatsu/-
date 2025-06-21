@@ -32,35 +32,35 @@
 
     .top-panel {
       top: 0;
-      height: 37vh;
+      height: 37%;
     }
 
     .central-panel {
-      top: 37.8vh;
-      height: calc(100vh - 37vh - 12vh - 3.2vh);
+      top: 37.8%;
+      height: calc(100% - 37% - 12% - 3.2%);
     }
 
     .bottom-panel {
       bottom: 0;
-      height: 13.7vh;
+      height: 13.7%;
     }
 
     button {
       --text-x: 50%;
       --text-y: 50%;
-      --text-size: 1.6vmin;
+      --text-size: 16px;
       --text-width: auto;
       --text-lines: 1;
 
       background-color: #212A33;
-      border-radius: 1.2vmin;
+      border-radius: 12px;
       border: none;
       color: white;
       cursor: pointer;
       transition: all 0.2s;
       position: absolute;
-      width: 12.7vmin;
-      height: 12.7vmin;
+      width: 127px;
+      height: 127px;
       font-family: 'Open Sans', sans-serif;
       font-weight: 600;
       overflow: hidden;
@@ -88,17 +88,17 @@
       content: "";
       position: absolute;
       background-color: #2989CA;
-      border-radius: 1.2vmin;
+      border-radius: 12px;
       width: var(--rect-width, 100%);
-      height: var(--rect-height, 4vmin);
+      height: var(--rect-height, 20px);
       bottom: calc(100% - var(--rect-y, 70%));
       left: 0;
       z-index: 1;
     }
 
     #top-main {
-      width: calc(12.7vmin * 2 + 7vmin);
-      height: 9vmin;
+      width: calc(127px * 2 + 70px);
+      height: 90px;
       top: 30%;
       left: 50%;
       transform: translate(-50%, -50%);
@@ -110,7 +110,7 @@
       transform: translateY(-50%);
       --text-width: 100%;
       --rect-width: 100%;
-      --rect-height: 5vmin;
+      --rect-height: 40px;
       --rect-y: 60%;
     }
 
@@ -120,7 +120,7 @@
       transform: translateY(-50%);
       --text-width: 100%;
       --rect-width: 100%;
-      --rect-height: 5vmin;
+      --rect-height: 40px;
       --rect-y: 70%;
     }
 
@@ -130,9 +130,9 @@
       transform: translateY(-50%);
       --text-width: 90%;
       --text-lines: 2;
-      --rect-height: 2vmin;
+      --rect-height: 20px;
       --rect-y: 100%;
-      --rect-width: 2vmin;
+      --rect-width: 20px;
     }
 
     #baners {
@@ -156,8 +156,8 @@
     }
 
     #bottom-main {
-      width: calc(12.7vmin * 2 + 7vmin);
-      height: 9vmin;
+      width: calc(127px * 2 + 70px);
+      height: 90px;
       top: 55%;
       left: 50%;
       transform: translate(-50%, -50%);
@@ -189,26 +189,40 @@
       transform: translateY(-50%) scale(0.9);
     }
 
-    @media (orientation: portrait) {
+    @media (max-width: 600px) {
       button {
-        --text-size: 1.8vmin;
+        width: 100px;
+        height: 100px;
       }
+
+      #top-main, #bottom-main {
+        width: calc(100px * 2 + 50px);
+        height: 70px;
+      }
+
       #traffice, #baners {
-        --text-size: 1.6vmin;
+        --text-size: 14px;
+      }
+
+      #offers, #exchange {
+        --rect-height: 30px;
       }
     }
 
-    @media (max-width: 600px) and (orientation: portrait) {
+    @media (max-width: 400px) {
       button {
-        width: 14vmin;
-        height: 14vmin;
+        width: 80px;
+        height: 80px;
+        --text-size: 12px;
       }
+
       #top-main, #bottom-main {
-        width: calc(14vmin * 2 + 6vmin);
-        height: 10vmin;
+        width: calc(80px * 2 + 40px);
+        height: 60px;
       }
+
       #offers, #exchange {
-        --rect-height: 4vmin;
+        --rect-height: 25px;
       }
     }
   </style>
