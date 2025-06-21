@@ -2,21 +2,23 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
   <title>Positioned Button App</title>
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
   <style>
     * {
       box-sizing: border-box;
+      margin: 0;
+      padding: 0;
     }
 
     body {
-      margin: 0;
-      padding: 0;
       background-color: #1b2026;
       font-family: 'Open Sans', Arial, sans-serif;
       height: 100vh;
+      width: 100vw;
       position: relative;
+      overflow: hidden;
     }
 
     .top-panel,
@@ -30,40 +32,37 @@
 
     .top-panel {
       top: 0;
-      height: 37%;
+      height: 37vh;
     }
 
     .central-panel {
-      top: 37.8%;
-      height: calc(100% - 37% - 12% - 3.2%);
+      top: 37.8vh;
+      height: calc(100vh - 37vh - 12vh - 3.2vh);
     }
 
     .bottom-panel {
       bottom: 0;
-      height: 13.7%;
+      height: 13.7vh;
     }
 
     button {
-      --text-x: 50%; /* Позиция по горизонтали (0% - левый край, 100% - правый) */
-      --text-y: 50%; /* Позиция по вертикали (0% - верх, 100% - низ) */
-      --text-size: 16px; /* Размер текста */
-      --text-width: auto; /* Ширина текстового блока */
-      --text-lines: 1; /* Количество строк */
+      --text-x: 50%;
+      --text-y: 50%;
+      --text-size: 1.6vmin;
+      --text-width: auto;
+      --text-lines: 1;
 
       background-color: #212A33;
-      border-radius: 12px;
+      border-radius: 1.2vmin;
       border: none;
       color: white;
       cursor: pointer;
       transition: all 0.2s;
       position: absolute;
-      width: 127px;
-      height: 127px;
+      width: 12.7vmin;
+      height: 12.7vmin;
       font-family: 'Open Sans', sans-serif;
       font-weight: 600;
-      display: flex;
-      align-items: center;
-      justify-content: center;
       overflow: hidden;
     }
 
@@ -85,22 +84,21 @@
       z-index: 2;
     }
 
-    /* Измененные стили для прямоугольника */
-    .highlight-rect {
+    button::after {
+      content: "";
       position: absolute;
       background-color: #2989CA;
-      border-radius: 12px;
-      z-index: 1;
+      border-radius: 1.2vmin;
       width: var(--rect-width, 100%);
-      height: var(--rect-height, 20px);
+      height: var(--rect-height, 4vmin);
       bottom: calc(100% - var(--rect-y, 70%));
       left: 0;
+      z-index: 1;
     }
 
-    /* Остальные стили остаются без изменений */
     #top-main {
-      width: calc(127px * 2 + 70px);
-      height: 90px;
+      width: calc(12.7vmin * 2 + 7vmin);
+      height: 9vmin;
       top: 30%;
       left: 50%;
       transform: translate(-50%, -50%);
@@ -112,7 +110,7 @@
       transform: translateY(-50%);
       --text-width: 100%;
       --rect-width: 100%;
-      --rect-height: 40px;
+      --rect-height: 5vmin;
       --rect-y: 60%;
     }
 
@@ -122,7 +120,7 @@
       transform: translateY(-50%);
       --text-width: 100%;
       --rect-width: 100%;
-      --rect-height: 40px;
+      --rect-height: 5vmin;
       --rect-y: 70%;
     }
 
@@ -132,6 +130,9 @@
       transform: translateY(-50%);
       --text-width: 90%;
       --text-lines: 2;
+      --rect-height: 2vmin;
+      --rect-y: 100%;
+      --rect-width: 2vmin;
     }
 
     #baners {
@@ -155,8 +156,8 @@
     }
 
     #bottom-main {
-      width: calc(127px * 2 + 70px);
-      height: 90px;
+      width: calc(12.7vmin * 2 + 7vmin);
+      height: 9vmin;
       top: 55%;
       left: 50%;
       transform: translate(-50%, -50%);
@@ -188,49 +189,44 @@
       transform: translateY(-50%) scale(0.9);
     }
 
-    @media (max-width: 600px) {
+    @media (orientation: portrait) {
       button {
-        width: 127px;
-        height: 127px;
+        --text-size: 1.8vmin;
       }
-
-      #top-main, #bottom-main {
-        width: calc(125px * 2 + 60px);
-        height: 80px;
-      }
-
       #traffice, #baners {
-        --text-width: 85%;
-        --text-size: 14px;
+        --text-size: 1.6vmin;
       }
+    }
 
+    @media (max-width: 600px) and (orientation: portrait) {
+      button {
+        width: 14vmin;
+        height: 14vmin;
+      }
+      #top-main, #bottom-main {
+        width: calc(14vmin * 2 + 6vmin);
+        height: 10vmin;
+      }
       #offers, #exchange {
-        --rect-height: 30px;
-        --rect-y: 75%;
+        --rect-height: 4vmin;
       }
     }
   </style>
 </head>
 <body>
   <div class="top-panel">
-    <button id="top-main" style="--text-x: 5%; --text-y: 15%; --text-size: 16px;" data-text="ID"></button>
-    <button id="offers" style="--rect-height: 50px; --rect-y: 100%; --text-x: 50%; --text-y: 30%; --text-size: 16px;" data-text="ОФФЕРЫ">
-      <div class="highlight-rect"></div>
-    </button>
-    <button id="exchange" style="--rect-height: 50px; --rect-y: 100%; --text-x: 50%; --text-y: 30%; --text-size: 16px;" data-text="БИРЖА">
-      <div class="highlight-rect"></div>
-    </button>
+    <button id="top-main" style="--text-x: 5%; --text-y: 15%;" data-text="ID"></button>
+    <button id="offers" style="--text-x: 50%; --text-y: 30%;" data-text="ОФФЕРЫ"></button>
+    <button id="exchange" style="--text-x: 50%; --text-y: 30%;" data-text="БИРЖА"></button>
   </div>
   <div class="central-panel">
-    <button id="traffice" style="--rect-height: 20px; --rect-y: 100%; --rect-width: 20px; --text-x: 50%; --text-y: 40%; --text-size: 16px;" data-text="КУПИТЬ ТРАФФИК">
-      <div class="highlight-rect"></div>
-    </button>
-    <button id="baners" style="--text-x: 50%; --text-y: 40%; --text-size: 16px;" data-text="КУПИТЬ РЕКЛАМУ"></button>
-    <button id="news" style="--text-x: 50%; --text-y: 40%; --text-size: 16px;" data-text="НОВОСТИ"></button>
-    <button id="event" style="--text-x: 50%; --text-y: 40%; --text-size: 16px;" data-text="СОБЫТИЯ"></button>
+    <button id="traffice" style="--text-x: 50%; --text-y: 40%;" data-text="КУПИТЬ ТРАФФИК"></button>
+    <button id="baners" style="--text-x: 50%; --text-y: 40%;" data-text="КУПИТЬ РЕКЛАМУ"></button>
+    <button id="news" style="--text-x: 50%; --text-y: 40%;" data-text="НОВОСТИ"></button>
+    <button id="event" style="--text-x: 50%; --text-y: 40%;" data-text="СОБЫТИЯ"></button>
   </div>
   <div class="bottom-panel">
-    <button id="bottom-main" style="--text-x: 25%; --text-y: 27%; --text-size: 16px;" data-text="СПИСОК АКЦИЙ"></button>
+    <button id="bottom-main" style="--text-x: 25%; --text-y: 27%;" data-text="СПИСОК АКЦИЙ"></button>
   </div>
 </body>
 </html>
