@@ -48,7 +48,7 @@
     button {
       --text-x: 50%;
       --text-y: 50%;
-      --text-size: 16px;
+      --text-size: 18px;
       --text-width: auto;
       --text-lines: 1;
 
@@ -59,8 +59,8 @@
       cursor: pointer;
       transition: all 0.2s;
       position: absolute;
-      width: 127px;
-      height: 127px;
+      width: 150px;
+      height: 150px;
       font-family: 'Open Sans', sans-serif;
       font-weight: 600;
       overflow: hidden;
@@ -97,8 +97,8 @@
     }
 
     #top-main {
-      width: calc(127px * 2 + 70px);
-      height: 90px;
+      width: calc(150px * 2 + 70px);
+      height: 110px;
       top: 30%;
       left: 50%;
       transform: translate(-50%, -50%);
@@ -108,9 +108,9 @@
       left: 10%;
       top: 73%;
       transform: translateY(-50%);
-      --text-width: 120%;
-      --rect-width: 120%;
-      --rect-height: 60px;
+      --text-width: 100%;
+      --rect-width: 100%;
+      --rect-height: 40px;
       --rect-y: 60%;
     }
 
@@ -156,8 +156,8 @@
     }
 
     #bottom-main {
-      width: calc(127px * 2 + 70px);
-      height: 90px;
+      width: calc(150px * 2 + 70px);
+      height: 110px;
       top: 55%;
       left: 50%;
       transform: translate(-50%, -50%);
@@ -191,13 +191,13 @@
 
     @media (max-width: 600px) {
       button {
-        width: 100px;
-        height: 100px;
+        width: 120px;
+        height: 120px;
       }
 
       #top-main, #bottom-main {
-        width: calc(100px * 2 + 160px);
-        height: 90px;
+        width: calc(120px * 2 + 160px);
+        height: 100px;
       }
 
       #traffice, #baners {
@@ -211,14 +211,14 @@
 
     @media (max-width: 400px) {
       button {
-        width: 80px;
-        height: 80px;
+        width: 100px;
+        height: 100px;
         --text-size: 12px;
       }
 
       #top-main, #bottom-main {
-        width: calc(80px * 2 + 150px);
-        height: 80px;
+        width: calc(100px * 2 + 150px);
+        height: 90px;
       }
 
       #offers, #exchange {
