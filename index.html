@@ -48,19 +48,23 @@
     button {
       --text-x: 50%;
       --text-y: 50%;
-      --text-size: 18px;
+      --text-size: 1.2vw; /* Адаптивный размер шрифта */
       --text-width: auto;
       --text-lines: 1;
 
       background-color: #212A33;
-      border-radius: 12px;
+      border-radius: 1.2vw; /* Адаптивный радиус скругления */
       border: none;
       color: white;
       cursor: pointer;
       transition: all 0.2s;
       position: absolute;
-      width: 150px;
-      height: 150px;
+      width: 12vw; /* Ширина в процентах от ширины viewport */
+      height: 12vw; /* Высота в процентах от ширины viewport */
+      min-width: 80px; /* Минимальные размеры для очень маленьких экранов */
+      min-height: 80px;
+      max-width: 180px; /* Максимальные размеры для очень больших экранов */
+      max-height: 180px;
       font-family: 'Open Sans', sans-serif;
       font-weight: 600;
       overflow: hidden;
@@ -88,17 +92,21 @@
       content: "";
       position: absolute;
       background-color: #2989CA;
-      border-radius: 12px;
+      border-radius: 1.2vw;
       width: var(--rect-width, 100%);
-      height: var(--rect-height, 20px);
+      height: var(--rect-height, 1.5vw);
       bottom: calc(100% - var(--rect-y, 70%));
       left: 0;
       z-index: 1;
     }
 
     #top-main {
-      width: calc(150px * 2 + 70px);
-      height: 110px;
+      width: 30vw; /* Ширина большой кнопки */
+      height: 8vw; /* Высота большой кнопки */
+      min-width: 250px;
+      min-height: 70px;
+      max-width: 350px;
+      max-height: 100px;
       top: 30%;
       left: 50%;
       transform: translate(-50%, -50%);
@@ -110,7 +118,7 @@
       transform: translateY(-50%);
       --text-width: 100%;
       --rect-width: 100%;
-      --rect-height: 40px;
+      --rect-height: 3vw;
       --rect-y: 60%;
     }
 
@@ -120,7 +128,7 @@
       transform: translateY(-50%);
       --text-width: 100%;
       --rect-width: 100%;
-      --rect-height: 40px;
+      --rect-height: 3vw;
       --rect-y: 70%;
     }
 
@@ -130,9 +138,9 @@
       transform: translateY(-50%);
       --text-width: 90%;
       --text-lines: 2;
-      --rect-height: 20px;
+      --rect-height: 1.5vw;
       --rect-y: 100%;
-      --rect-width: 20px;
+      --rect-width: 1.5vw;
     }
 
     #baners {
@@ -156,8 +164,12 @@
     }
 
     #bottom-main {
-      width: calc(150px * 2 + 70px);
-      height: 110px;
+      width: 30vw;
+      height: 8vw;
+      min-width: 250px;
+      min-height: 70px;
+      max-width: 350px;
+      max-height: 100px;
       top: 55%;
       left: 50%;
       transform: translate(-50%, -50%);
@@ -189,40 +201,33 @@
       transform: translateY(-50%) scale(0.9);
     }
 
-    @media (max-width: 600px) {
+    @media (max-width: 768px) {
       button {
-        width: 120px;
-        height: 120px;
+        --text-size: 1.8vw;
+        width: 14vw;
+        height: 14vw;
       }
 
       #top-main, #bottom-main {
-        width: calc(120px * 2 + 160px);
-        height: 100px;
+        width: 35vw;
+        height: 10vw;
       }
 
       #traffice, #baners {
-        --text-size: 14px;
-      }
-
-      #offers, #exchange {
-        --rect-height: 30px;
+        --text-size: 1.6vw;
       }
     }
 
-    @media (max-width: 400px) {
+    @media (max-width: 480px) {
       button {
-        width: 100px;
-        height: 100px;
-        --text-size: 12px;
+        --text-size: 2.2vw;
+        width: 16vw;
+        height: 16vw;
       }
 
       #top-main, #bottom-main {
-        width: calc(100px * 2 + 150px);
-        height: 90px;
-      }
-
-      #offers, #exchange {
-        --rect-height: 25px;
+        width: 40vw;
+        height: 12vw;
       }
     }
   </style>
