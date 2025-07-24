@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>Positioned Button App</title>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: #1b2026;
+      font-family: 'Open Sans', Arial, sans-serif;
+      height: 100vh;
+      width: 100vw;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .top-panel,
+    .central-panel,
+    .bottom-panel {
+      position: absolute;
+      left: 0;
+      width: 100%;
+      background-color: #242e38;
+    }
+
+    .top-panel {
+      top: 0;
+      height: 37%;
+    }
+
+    .central-panel {
+      top: 37.8%;
+      height: calc(100% - 37% - 12% - 3.2%);
+    }
+
+    .bottom-panel {
+      bottom: 0;
+      height: 13.7%;
+    }
+
+    button {
+      --text-x: 50%;
+      --text-y: 50%;
+      --text-size: 1.2vw; /* Адаптивный размер шрифта */
+      --text-width: auto;
+      --text-lines: 1;
+
+      background-color: #212A33;
+      border-radius: 1.2vw; /* Адаптивный радиус скругления */
+      border: none;
+      color: white;
+      cursor: pointer;
+      transition: all 0.2s;
+      position: absolute;
+      width: 12vw; /* Ширина в процентах от ширины viewport */
+      height: 12vw; /* Высота в процентах от ширины viewport */
+      min-width: 80px; /* Минимальные размеры для очень маленьких экранов */
+      min-height: 80px;
+      max-width: 180px; /* Максимальные размеры для очень больших экранов */
+      max-height: 180px;
+      font-family: 'Open Sans', sans-serif;
+      font-weight: 600;
+      overflow: hidden;
+    }
+
+    button::before {
+      content: attr(data-text);
+      position: absolute;
+      left: var(--text-x);
+      top: var(--text-y);
+      transform: translate(-50%, -50%);
+      font-size: var(--text-size);
+      width: var(--text-width);
+      text-align: center;
+      white-space: pre-wrap;
+      word-break: break-word;
+      display: -webkit-box;
+      -webkit-line-clamp: var(--text-lines);
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      z-index: 2;
+    }
+
+    button::after {
+      content: "";
+      position: absolute;
+      background-color: #2989CA;
+      border-radius: 1.2vw;
+      width: var(--rect-width, 100%);
+      height: var(--rect-height, 1.5vw);
+      bottom: calc(100% - var(--rect-y, 70%));
+      left: 0;
+      z-index: 1;
+    }
+
+    #top-main {
+      width: 30vw; /* Ширина большой кнопки */
+      height: 8vw; /* Высота большой кнопки */
+      min-width: 250px;
+      min-height: 70px;
+      max-width: 350px;
+      max-height: 100px;
+      top: 30%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    #offers {
+      left: 10%;
+      top: 73%;
+      transform: translateY(-50%);
+      --text-width: 100%;
+      --rect-width: 100%;
+      --rect-height: 3vw;
+      --rect-y: 60%;
+    }
+
+    #exchange {
+      right: 10%;
+      top: 73%;
+      transform: translateY(-50%);
+      --text-width: 100%;
+      --rect-width: 100%;
+      --rect-height: 3vw;
+      --rect-y: 70%;
+    }
+
+    #traffice {
+      left: 10%;
+      top: 30%;
+      transform: translateY(-50%);
+      --text-width: 90%;
+      --text-lines: 2;
+      --rect-height: 1.5vw;
+      --rect-y: 100%;
+      --rect-width: 1.5vw;
+    }
+
+    #baners {
+      right: 10%;
+      top: 30%;
+      transform: translateY(-50%);
+      --text-width: 90%;
+      --text-lines: 2;
+    }
+
+    #news {
+      left: 10%;
+      bottom: 12%;
+      --text-width: 100%;
+    }
+
+    #event {
+      right: 10%;
+      bottom: 12%;
+      --text-width: 100%;
+    }
+
+    #bottom-main {
+      width: 30vw;
+      height: 8vw;
+      min-width: 250px;
+      min-height: 70px;
+      max-width: 350px;
+      max-height: 100px;
+      top: 55%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    button:hover {
+      transform: scale(0.95);
+    }
+
+    button:active {
+      transform: scale(0.9);
+    }
+
+    #top-main:hover, #bottom-main:hover {
+      transform: translate(-50%, -50%) scale(0.95);
+    }
+
+    #top-main:active, #bottom-main:active {
+      transform: translate(-50%, -50%) scale(0.9);
+    }
+
+    #offers:hover, #exchange:hover,
+    #traffice:hover, #baners:hover {
+      transform: translateY(-50%) scale(0.95);
+    }
+
+    #offers:active, #exchange:active,
+    #traffice:active, #baners:active {
+      transform: translateY(-50%) scale(0.9);
+    }
+
+    @media (max-width: 768px) {
+      button {
+        --text-size: 1.8vw;
+        width: 14vw;
+        height: 14vw;
+      }
+
+      #top-main, #bottom-main {
+        width: 35vw;
+        height: 10vw;
+      }
+
+      #traffice, #baners {
+        --text-size: 1.6vw;
+      }
+    }
+
+    @media (max-width: 480px) {
+      button {
+        --text-size: 2.2vw;
+        width: 16vw;
+        height: 16vw;
+      }
+
+      #top-main, #bottom-main {
+        width: 40vw;
+        height: 12vw;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="top-panel">
+    <button id="top-main" style="--text-x: 5%; --text-y: 15%;" data-text="ID"></button>
+    <button id="offers" style="--text-x: 50%; --text-y: 30%;" data-text="ОФФЕРЫ"></button>
+    <button id="exchange" style="--text-x: 50%; --text-y: 30%;" data-text="БИРЖА"></button>
+  </div>
+  <div class="central-panel">
+    <button id="traffice" style="--text-x: 50%; --text-y: 40%;" data-text="КУПИТЬ ТРАФФИК"></button>
+    <button id="baners" style="--text-x: 50%; --text-y: 40%;" data-text="КУПИТЬ РЕКЛАМУ"></button>
+    <button id="news" style="--text-x: 50%; --text-y: 40%;" data-text="НОВОСТИ"></button>
+    <button id="event" style="--text-x: 50%; --text-y: 40%;" data-text="СОБЫТИЯ"></button>
+  </div>
+  <div class="bottom-panel">
+    <button id="bottom-main" style="--text-x: 25%; --text-y: 27%;" data-text="СПИСОК АКЦИЙ"></button>
+  </div>
+</body>
+</html>
